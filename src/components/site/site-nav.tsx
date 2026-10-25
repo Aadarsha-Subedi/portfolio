@@ -30,6 +30,7 @@ export function SiteNav() {
 					hoverEffect="fill"
 					indicator="dot"
 					theme="light"
+					size='lg'
 					onItemClick={(item, _index, e) => {
 						if (item.href === RESUME_URL) {
 							e.preventDefault();
