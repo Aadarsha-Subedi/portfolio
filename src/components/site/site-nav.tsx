@@ -72,9 +72,10 @@ export function SiteNav({
 					},
 				}}
 				theme="light"
+				className="site-nav"
 				cardEffect="rise"
 				openOn="click"
-				accentColor="#d41a1b"
+				accentColor="#0284c7"
 				maxWidth={1392}
 				onLinkClick={(link, _item, e) => {
 					if (typeof link.projectId === "string" && onOpenProject) {

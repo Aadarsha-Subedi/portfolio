@@ -26,7 +26,7 @@ export function ContactBlock() {
 				{profile.email}
 			</a>
 			<div className="flex flex-wrap gap-2">
-				<Button variant="ink" onClick={copy}>
+				<Button variant="primary" onClick={copy}>
 					<CopyIcon aria-hidden /> Copy email
 				</Button>
 				<ButtonLink variant="secondary" href={RESUME_URL} target="_blank" rel="noreferrer">
