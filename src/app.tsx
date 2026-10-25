@@ -6,6 +6,7 @@ import { ContactBlock } from "@/components/site/contact-block";
 import { EducationBlock } from "@/components/site/education-block";
 import { Footer } from "@/components/site/footer";
 import { IntroBlock } from "@/components/site/intro-block";
+import { ParticleField } from "@/components/site/particle-field";
 import { Plate } from "@/components/site/plate";
 import { ProjectEntry } from "@/components/site/project-entry";
 import { RoleEntry } from "@/components/site/role-entry";
@@ -73,6 +74,7 @@ function Site() {
 
 	return (
 		<>
+			<ParticleField />
 			<TopBar active={active} onOpenIndex={() => setIndexOpen(true)} />
 			<CommandIndex items={indexItems} open={indexOpen} onOpenChange={setIndexOpen} />
 
