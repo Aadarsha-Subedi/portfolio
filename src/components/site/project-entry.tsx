@@ -1,4 +1,4 @@
-import { IconMinus, IconPlus } from "@tabler/icons-react";
+import { MinusIcon, PlusIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 
 import { TagList } from "@/components/ui/tag";
@@ -55,7 +55,7 @@ export function ProjectEntry({
 					<span className="col-span-5 hidden text-ink-2 sm:block">{project.summary}</span>
 					<span className="col-span-2 flex justify-end sm:col-span-1">
 						<span className="grid size-9 place-items-center shadow-[inset_0_0_0_1px_var(--ink)] transition-colors group-hover/entry:bg-ink group-hover/entry:text-paper">
-							{open ? <IconMinus size={18} stroke={1.75} aria-hidden /> : <IconPlus size={18} stroke={1.75} aria-hidden />}
+							{open ? <MinusIcon size={18} aria-hidden /> : <PlusIcon size={18} aria-hidden />}
 						</span>
 					</span>
 				</button>

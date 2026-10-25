@@ -1,5 +1,5 @@
 import { Dialog } from "@base-ui/react/dialog";
-import { IconCornerDownLeft, IconSearch } from "@tabler/icons-react";
+import { ArrowElbowDownLeftIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -85,7 +85,7 @@ export function CommandIndex({
 				>
 					<Dialog.Title className="sr-only">Site index</Dialog.Title>
 					<div className="flex h-14 items-center gap-3 border-b border-ink px-4">
-						<IconSearch size={20} stroke={1.75} className="text-ink-2" aria-hidden />
+						<MagnifyingGlassIcon size={20} className="text-ink-2" aria-hidden />
 						<input
 							autoFocus
 							value={query}
@@ -129,7 +129,7 @@ export function CommandIndex({
 										<span className="font-medium">{item.label}</span>
 										<span className="flex items-center gap-2 text-sm text-ink-2">
 											{item.meta}
-											{i === cursor && <IconCornerDownLeft size={15} stroke={1.75} aria-hidden />}
+											{i === cursor && <ArrowElbowDownLeftIcon size={15} aria-hidden />}
 										</span>
 									</div>
 								</li>

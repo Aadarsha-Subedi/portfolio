@@ -1,4 +1,4 @@
-import { IconCheck } from "@tabler/icons-react";
+import { CheckIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { createContext, useCallback, useContext, useRef, useState, type ReactNode } from "react";
 
@@ -35,7 +35,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 							className="flex h-11 items-center gap-2 bg-ink pr-4 pl-3 text-sm font-medium text-paper"
 						>
 							<span className="grid size-6 place-items-center bg-red text-red-ink">
-								<IconCheck size={15} stroke={2.25} aria-hidden />
+								<CheckIcon size={15} weight="bold" aria-hidden />
 							</span>
 							{toast.message}
 						</motion.div>

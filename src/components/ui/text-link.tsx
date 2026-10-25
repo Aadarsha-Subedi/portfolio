@@ -1,4 +1,4 @@
-import { IconArrowUpRight } from "@tabler/icons-react";
+import { ArrowUpRightIcon } from "@phosphor-icons/react";
 import type { ComponentProps } from "react";
 
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ export function TextLink({ className, external, children, ...props }: TextLinkPr
 		>
 			{children}
 			{external && (
-				<IconArrowUpRight
+				<ArrowUpRightIcon
 					className="size-[0.95em] self-center transition-transform duration-(--dur-base) ease-out-expo group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
 					aria-hidden
 				/>

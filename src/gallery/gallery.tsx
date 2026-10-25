@@ -1,20 +1,20 @@
 import {
-	IconArrowRight,
-	IconArrowUpRight,
-	IconBrandGithub,
-	IconBrandLinkedin,
-	IconCheck,
-	IconCommand,
-	IconCopy,
-	IconDownload,
-	IconMail,
-	IconMapPin,
-	IconMenu2,
-	IconMinus,
-	IconPlus,
-	IconSearch,
-	IconX,
-} from "@tabler/icons-react";
+	ArrowRightIcon,
+	ArrowUpRightIcon,
+	GithubLogoIcon,
+	LinkedinLogoIcon,
+	CheckIcon,
+	CommandIcon,
+	CopyIcon,
+	DownloadSimpleIcon,
+	EnvelopeSimpleIcon,
+	MapPinIcon,
+	ListIcon,
+	MinusIcon,
+	PlusIcon,
+	MagnifyingGlassIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 import { MotionConfig } from "motion/react";
 import { useMemo, useState, type ReactNode } from "react";
 
@@ -22,6 +22,7 @@ import { CommandIndex, type IndexItem } from "@/components/site/command-index";
 import { ContactBlock } from "@/components/site/contact-block";
 import { IntroBlock } from "@/components/site/intro-block";
 import { Plate } from "@/components/site/plate";
+import { RoleFlip } from "@/components/site/role-flip";
 import { ProjectEntry } from "@/components/site/project-entry";
 import { RoleEntry } from "@/components/site/role-entry";
 import { SkillsList } from "@/components/site/skills-list";
@@ -80,8 +81,8 @@ function Swatch({ name, value, className, text = "text-ink" }: { name: string; v
 function ToastDemo() {
 	const toast = useToast();
 	return (
-		<Button variant="outline" onClick={() => toast("Email address copied")}>
-			<IconCopy aria-hidden /> Show toast
+		<Button variant="secondary" onClick={() => toast("Email address copied")}>
+			<CopyIcon aria-hidden /> Show toast
 		</Button>
 	);
 }
@@ -103,21 +104,21 @@ export function Gallery() {
 	);
 
 	const icons = [
-		["Arrow right", IconArrowRight],
-		["External", IconArrowUpRight],
-		["Download", IconDownload],
-		["Mail", IconMail],
-		["Copy", IconCopy],
-		["Check", IconCheck],
-		["Search", IconSearch],
-		["Command", IconCommand],
-		["Menu", IconMenu2],
-		["Close", IconX],
-		["Expand", IconPlus],
-		["Collapse", IconMinus],
-		["Location", IconMapPin],
-		["GitHub", IconBrandGithub],
-		["LinkedIn", IconBrandLinkedin],
+		["Arrow right", ArrowRightIcon],
+		["External", ArrowUpRightIcon],
+		["Download", DownloadSimpleIcon],
+		["Mail", EnvelopeSimpleIcon],
+		["Copy", CopyIcon],
+		["Check", CheckIcon],
+		["Search", MagnifyingGlassIcon],
+		["Command", CommandIcon],
+		["Menu", ListIcon],
+		["Close", XIcon],
+		["Expand", PlusIcon],
+		["Collapse", MinusIcon],
+		["Location", MapPinIcon],
+		["GitHub", GithubLogoIcon],
+		["LinkedIn", LinkedinLogoIcon],
 	] as const;
 
 	return (
@@ -127,7 +128,7 @@ export function Gallery() {
 					<header className="grid grid-cols-12 gap-x-6 py-10 sm:py-16">
 						<h1 className="col-span-12 font-condensed text-display lg:col-span-9">Component specimens</h1>
 						<p className="col-span-12 mt-6 max-w-[52ch] text-lg text-ink-2 lg:col-span-3 lg:mt-0 lg:self-end">
-							Swiss grid direction. Each specimen has a code (C1 to C13): reply with the codes you approve or
+							Swiss grid direction. Each specimen has a code (C1 to C14): reply with the codes you approve or
 							reject, and what to change. Everything is interactive.
 						</p>
 					</header>
@@ -172,13 +173,13 @@ export function Gallery() {
 					<Specimen
 						code="C2"
 						name="Icons"
-						note="One set, one stroke: Tabler outline at 1.75, 20px. Brand marks from the same set so they match."
-						source="Tabler Icons (free, MIT), the set Vibrant lists and Kobra's components use."
+						note="One set, one weight: Phosphor regular at 20px. Brand marks from the same set so they match."
+						source="Phosphor Icons (free, MIT), your pick."
 					>
 						<ul className="grid grid-cols-3 border-t border-l border-rule sm:grid-cols-5">
 							{icons.map(([label, Icon]) => (
 								<li key={label} className="flex flex-col items-center gap-3 border-r border-b border-rule py-6 text-sm text-ink-2">
-									<Icon size={24} stroke={1.75} className="text-ink" aria-hidden />
+									<Icon size={24} className="text-ink" aria-hidden />
 									{label}
 								</li>
 							))}
@@ -188,23 +189,23 @@ export function Gallery() {
 					<Specimen
 						code="C3"
 						name="Buttons"
-						note="Square and flat. On hover a block of the opposite colour wipes in from the left; press drops 1px. Loading keeps the label and spins an icon."
-						source="Kobra Button's state set (Pro, so not copied; rebuilt here), shadcn's variant API."
+						note="Softly rounded keys with a 1px edge, a faint top highlight and a small shadow. Primary is the signal red, secondary a white key. Press sinks 1px and the shadow turns inward. Loading keeps the label and spins an icon."
+						source="Vibrant's primary and secondary buttons, in your palette; shadcn's variant API."
 					>
 						<div className="flex flex-col gap-8">
 							<div className="flex flex-wrap items-center gap-3">
 								<Button>
-									<IconDownload aria-hidden /> Resume (PDF)
+									<DownloadSimpleIcon aria-hidden /> Resume (PDF)
 								</Button>
 								<Button variant="ink">
-									<IconMail aria-hidden /> Email me
+									<EnvelopeSimpleIcon aria-hidden /> Email me
 								</Button>
-								<Button variant="outline">
-									View project <IconArrowRight aria-hidden />
+								<Button variant="secondary">
+									View project <ArrowRightIcon aria-hidden />
 								</Button>
 								<Button variant="ghost">Ghost</Button>
-								<Button variant="outline" size="icon" aria-label="Copy email">
-									<IconCopy aria-hidden />
+								<Button variant="secondary" size="icon" aria-label="Copy email">
+									<CopyIcon aria-hidden />
 								</Button>
 							</div>
 							<div className="flex flex-wrap items-center gap-3">
@@ -224,7 +225,8 @@ export function Gallery() {
 								<Button disabled>Disabled</Button>
 							</div>
 							<div className="flex flex-wrap gap-3 bg-red p-5">
-								<Button variant="inverse">On red</Button>
+								<Button variant="secondary">Resume (PDF)</Button>
+								<Button variant="onRed">Email me</Button>
 							</div>
 						</div>
 					</Specimen>
@@ -267,8 +269,8 @@ export function Gallery() {
 						note="An index of every project, role and action, set like a catalogue's index. Type to filter, arrows to move, Enter to go, Esc to close."
 						source="Kobra Command Menu (free) for the behaviour; Base UI Dialog; styling is original."
 					>
-						<Button variant="outline" onClick={() => setIndexOpen(true)}>
-							<IconSearch aria-hidden /> Open the index
+						<Button variant="secondary" onClick={() => setIndexOpen(true)}>
+							<MagnifyingGlassIcon aria-hidden /> Open the index
 							<kbd className="ml-2 text-xs text-current/70">Ctrl K</kbd>
 						</Button>
 						<CommandIndex items={indexItems} open={indexOpen} onOpenChange={setIndexOpen} />
@@ -350,19 +352,31 @@ export function Gallery() {
 
 					<Specimen
 						code="C13"
+						name="Designation switcher"
+						note="Your title cycles Full Stack, Frontend, Backend while Engineer holds still. Each word slides up out of a fixed line; it pauses while hovered, and screen readers hear only Full Stack Engineer."
+						source="Aceternity Container Text Flip (free) for the idea; Motion, without the blur."
+					>
+						<RoleFlip className="font-condensed text-headline" />
+					</Specimen>
+
+					<Specimen
+						code="C14"
 						name="First screen, assembled"
 						note="How the pieces meet on the first screen: name across the top, timetable at right, red block, and a project screenshot set into the grid."
 						source="The direction contract's first-viewport plan."
 					>
 						<div className="grid grid-cols-12 gap-4 bg-paper p-4 shadow-[inset_0_0_0_1px_var(--rule)] sm:gap-6 sm:p-6">
-							<h2 className="col-span-12 font-condensed text-[clamp(3rem,1rem+6vw,7.5rem)] leading-[0.86] tracking-[-0.035em] lg:col-span-8">
-								Aadarsha
-								<br />
-								Subedi
-							</h2>
+							<div className="col-span-12 lg:col-span-8">
+								<h2 className="font-condensed text-[clamp(3rem,1rem+6vw,7.5rem)] leading-[0.86] tracking-[-0.035em]">
+									Aadarsha
+									<br />
+									Subedi
+								</h2>
+								<RoleFlip className="mt-4 font-condensed text-[clamp(1.75rem,1rem+2vw,3rem)] leading-none tracking-[-0.02em]" />
+							</div>
 							<div className="col-span-12 lg:col-span-4 lg:self-end">
 								<p className="mb-2 flex items-center gap-1.5 text-sm text-ink-2">
-									<IconMapPin size={16} stroke={1.75} aria-hidden /> {profile.role}, {profile.location}
+									<MapPinIcon size={16} aria-hidden /> {profile.location}
 								</p>
 								<Timetable roles={experience} />
 							</div>

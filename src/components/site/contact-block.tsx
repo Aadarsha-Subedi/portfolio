@@ -1,4 +1,4 @@
-import { IconBrandGithub, IconBrandLinkedin, IconCopy, IconDownload } from "@tabler/icons-react";
+import { GithubLogoIcon, LinkedinLogoIcon, CopyIcon, DownloadSimpleIcon } from "@phosphor-icons/react";
 
 import { Button, ButtonLink } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
@@ -27,16 +27,16 @@ export function ContactBlock() {
 			</a>
 			<div className="flex flex-wrap gap-2">
 				<Button variant="ink" onClick={copy}>
-					<IconCopy aria-hidden /> Copy email
+					<CopyIcon aria-hidden /> Copy email
 				</Button>
-				<ButtonLink variant="outline" href={RESUME_URL} target="_blank" rel="noreferrer">
-					<IconDownload aria-hidden /> Resume (PDF)
+				<ButtonLink variant="secondary" href={RESUME_URL} target="_blank" rel="noreferrer">
+					<DownloadSimpleIcon aria-hidden /> Resume (PDF)
 				</ButtonLink>
-				<ButtonLink variant="outline" href={profile.links.linkedin} target="_blank" rel="noreferrer">
-					<IconBrandLinkedin aria-hidden /> LinkedIn
+				<ButtonLink variant="secondary" href={profile.links.linkedin} target="_blank" rel="noreferrer">
+					<LinkedinLogoIcon aria-hidden /> LinkedIn
 				</ButtonLink>
-				<ButtonLink variant="outline" href={profile.links.github} target="_blank" rel="noreferrer">
-					<IconBrandGithub aria-hidden /> GitHub
+				<ButtonLink variant="secondary" href={profile.links.github} target="_blank" rel="noreferrer">
+					<GithubLogoIcon aria-hidden /> GitHub
 				</ButtonLink>
 			</div>
 		</div>

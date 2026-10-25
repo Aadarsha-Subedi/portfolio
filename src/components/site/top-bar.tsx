@@ -1,5 +1,5 @@
 import { Dialog } from "@base-ui/react/dialog";
-import { IconCommand, IconMenu2, IconX } from "@tabler/icons-react";
+import { CommandIcon, ListIcon, XIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
@@ -68,7 +68,7 @@ export function TopBar({
 					>
 						Index
 						<kbd className="flex items-center gap-0.5 font-sans text-xs">
-							<IconCommand size={13} stroke={1.75} aria-label="Command" />K
+							<CommandIcon size={13} aria-label="Command" />K
 						</kbd>
 					</button>
 				</nav>
@@ -78,7 +78,7 @@ export function TopBar({
 						className="flex items-center gap-2 self-center text-[0.95rem] font-medium md:hidden"
 						aria-label="Open menu"
 					>
-						Menu <IconMenu2 size={20} stroke={1.75} aria-hidden />
+						Menu <ListIcon size={20} aria-hidden />
 					</Dialog.Trigger>
 					<Dialog.Portal>
 						<Dialog.Popup
@@ -91,7 +91,7 @@ export function TopBar({
 							<div className="flex h-14 items-center justify-between border-b border-red-ink/40 px-4">
 								<Dialog.Title className="font-condensed text-xl">Aadarsha Subedi</Dialog.Title>
 								<Dialog.Close className="flex items-center gap-2 font-medium" aria-label="Close menu">
-									Close <IconX size={20} stroke={1.75} aria-hidden />
+									Close <XIcon size={20} aria-hidden />
 								</Dialog.Close>
 							</div>
 							<nav aria-label="Sections" className="flex-1 px-4 pt-6">

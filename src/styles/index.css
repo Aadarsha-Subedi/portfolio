@@ -17,6 +17,7 @@
 :root {
 	--paper: oklch(0.975 0.003 250);
 	--paper-2: oklch(0.945 0.004 250);
+	--surface: oklch(0.995 0.002 250);
 	--ink: oklch(0.19 0.012 260);
 	--ink-2: oklch(0.43 0.012 260);
 	--rule: oklch(0.19 0.012 260 / 0.16);
@@ -37,6 +38,7 @@
 @theme inline {
 	--color-paper: var(--paper);
 	--color-paper-2: var(--paper-2);
+	--color-surface: var(--surface);
 	--color-ink: var(--ink);
 	--color-ink-2: var(--ink-2);
 	--color-rule: var(--rule);
