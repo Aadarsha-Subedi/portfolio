@@ -1,94 +1,43 @@
-import CardNav, { type CardNavItem } from "@/components/react-bits/card-nav";
-import { RESUME_URL, profile, projects } from "@/content/resume";
+import PillNav from "@/components/react-bits/pill-nav";
+import { RESUME_URL } from "@/content/resume";
+
+const PHOTO_URL = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/passport-photo.jpeg";
 
 export const sections = [
 	{ id: "work", label: "Work" },
 	{ id: "experience", label: "Experience" },
-	{ id: "education", label: "Education" },
 	{ id: "skills", label: "Skills" },
 	{ id: "contact", label: "Contact" },
 ];
 
-const items: CardNavItem[] = [
-	{
-		label: "Work",
-		description: "Things I designed, built and deployed end to end.",
-		links: projects.map((p) => ({
-			label: p.name,
-			href: `#project-${p.id}`,
-			projectId: p.id,
-		})),
-	},
-	{
-		label: "Career",
-		description: "Where I’ve worked, what I studied and the tools I use.",
-		links: [
-			{ label: "Experience", href: "#experience" },
-			{ label: "Education", href: "#education" },
-			{ label: "Skills", href: "#skills" },
-		],
-	},
-	{
-		label: "Contact",
-		description: "Email is the fastest way to reach me.",
-		links: [
-			{ label: "Email", href: `mailto:${profile.email}` },
-			{ label: "LinkedIn", href: profile.links.linkedin },
-			{ label: "GitHub", href: profile.links.github },
-			{ label: "Search the site (Ctrl/⌘ K)", action: "index" },
-		],
-	},
-];
+const items = [...sections.map((s) => ({ label: s.label, href: `#${s.id}` })), { label: "Resume", href: RESUME_URL }];
 
 /*
- * The site's navigation: React Bits CardNav, held to the page's content width
- * and stuck to the top. Project links open the project they point at.
+ * The site's navigation: React Bits PillNav with Aadarsha's photo in the
+ * round logo button, centred at the top within the page's content width.
  */
-export function SiteNav({
-	onOpenProject,
-	onOpenIndex,
-}: {
-	onOpenProject?: (id: string) => void;
-	onOpenIndex?: () => void;
-}) {
+export function SiteNav() {
 	return (
-		<header className="sticky top-0 z-40 px-4 pt-3 sm:px-6">
-			<CardNav
-				logo={
-					<span className="font-condensed flex items-center gap-2 text-xl tracking-tight">
-						<span aria-hidden className="bg-red size-3" />
-						Aadarsha Subedi
-					</span>
-				}
-				logoAlt="Aadarsha Subedi, back to top"
-				logoHref="#top"
-				items={items}
-				cta={{
-					label: "View resume",
-					href: RESUME_URL,
-					onClick: (e) => {
-						e.preventDefault();
-						window.open(RESUME_URL, "_blank", "noreferrer");
-					},
-				}}
-				theme="light"
-				className="site-nav"
-				cardEffect="rise"
-				openOn="click"
-				accentColor="#0284c7"
-				maxWidth={1392}
-				onLinkClick={(link, _item, e) => {
-					if (typeof link.projectId === "string" && onOpenProject) {
-						e.preventDefault();
-						onOpenProject(link.projectId);
-					} else if (link.action === "index") {
-						onOpenIndex?.();
-					} else if (link.href?.startsWith("http")) {
-						e.preventDefault();
-						window.open(link.href, "_blank", "noreferrer");
-					}
-				}}
-			/>
+		<header className="sticky top-0 z-40 px-4 pt-4 sm:px-6">
+			<div className="mx-auto flex max-w-[1392px] justify-center">
+				<PillNav
+					className="site-nav"
+					logo={<img src={PHOTO_URL} alt="" draggable={false} />}
+					logoAlt="Aadarsha Subedi, back to top"
+					logoHref="#top"
+					items={items}
+					itemStyle="pill"
+					hoverEffect="fill"
+					indicator="dot"
+					theme="light"
+					onItemClick={(item, _index, e) => {
+						if (item.href === RESUME_URL) {
+							e.preventDefault();
+							window.open(RESUME_URL, "_blank", "noreferrer");
+						}
+					}}
+				/>
+			</div>
 		</header>
 	);
 }

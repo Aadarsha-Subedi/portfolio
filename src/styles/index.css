@@ -129,10 +129,14 @@
 	}
 }
 
-/* CardNav's Resume button, sized to match the site's smaller buttons. */
-.site-nav .card-nav__cta:not(.card-nav__cta--wide) {
-	height: 34px;
-	padding: 0 14px;
-	border-radius: 8px;
-	font-size: 13px;
+/* PillNav's logo button holds a round photo instead of a small mark. */
+.site-nav .pill-nav__mark {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 999px;
+}
+
+.site-nav .pill-nav__mark img {
+	object-fit: cover;
 }
