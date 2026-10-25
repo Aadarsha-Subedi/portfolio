@@ -12,14 +12,12 @@ import { ProjectEntry } from "@/components/site/project-entry";
 import { RoleEntry } from "@/components/site/role-entry";
 import { RoleFlip } from "@/components/site/role-flip";
 import { Section } from "@/components/site/section";
+import { SiteNav, sections } from "@/components/site/site-nav";
 import { SkillsList } from "@/components/site/skills-list";
 import { Timetable } from "@/components/site/timetable";
-import { TopBar, sections } from "@/components/site/top-bar";
 import { ToastProvider, useToast } from "@/components/ui/toast";
 import { RESUME_URL, experience, profile, projects } from "@/content/resume";
-import { useActiveSection } from "@/hooks";
 
-const sectionIds = sections.map((s) => s.id);
 const featured = projects.find((p) => p.featured)!;
 
 function scrollToId(id: string) {
@@ -28,7 +26,6 @@ function scrollToId(id: string) {
 
 function Site() {
 	const toast = useToast();
-	const active = useActiveSection(sectionIds);
 	const [indexOpen, setIndexOpen] = useState(false);
 	const [openProject, setOpenProject] = useState<string | null>(null);
 
@@ -75,12 +72,12 @@ function Site() {
 	return (
 		<>
 			<ParticleField />
-			<TopBar active={active} onOpenIndex={() => setIndexOpen(true)} />
+			<SiteNav onOpenProject={openProjectAndScroll} onOpenIndex={() => setIndexOpen(true)} />
 			<CommandIndex items={indexItems} open={indexOpen} onOpenChange={setIndexOpen} />
 
 			<main id="top" className="mx-auto max-w-[1440px] px-4 sm:px-6">
 				{/* First screen: name, designation, timetable, the red block and the flagship project. */}
-				<section aria-label="Introduction" className="grid grid-cols-12 gap-x-4 gap-y-8 pt-8 pb-20 sm:gap-x-6 sm:pt-12 md:pb-28">
+				<section aria-label="Introduction" className="grid grid-cols-12 gap-x-4 gap-y-8 pt-10 pb-20 sm:gap-x-6 sm:pt-14 md:pb-28">
 					<div className="col-span-12 lg:col-span-8">
 						<h1 className="font-condensed text-display">
 							Aadarsha

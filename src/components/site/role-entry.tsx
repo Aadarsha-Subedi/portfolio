@@ -3,7 +3,7 @@ import type { Role } from "@/content/resume";
 /* One role: dates and place on the left rail, the work on the right, figures set as a ruled row. */
 export function RoleEntry({ role }: { role: Role }) {
 	return (
-		<article id={`role-${role.id}`} className="grid scroll-mt-20 grid-cols-12 gap-x-4 gap-y-4 border-b border-rule py-8 first:pt-0 sm:gap-x-6">
+		<article id={`role-${role.id}`} className="grid scroll-mt-24 grid-cols-12 gap-x-4 gap-y-4 border-b border-rule py-8 first:pt-0 sm:gap-x-6">
 			<div className="col-span-12 sm:col-span-4">
 				<p className="font-condensed text-numeral">{role.years}</p>
 				<p className="mt-2 text-sm text-ink-2">

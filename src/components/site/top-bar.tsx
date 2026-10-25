@@ -5,13 +5,9 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-export const sections = [
-	{ id: "work", label: "Work" },
-	{ id: "experience", label: "Experience" },
-	{ id: "education", label: "Education" },
-	{ id: "skills", label: "Skills" },
-	{ id: "contact", label: "Contact" },
-];
+import { sections } from "@/components/site/site-nav";
+
+export { sections };
 
 /*
  * The top rule of the poster. A red bar sits under the active section and
@@ -29,10 +25,13 @@ export function TopBar({
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
-		<header className="sticky top-0 z-40 border-b border-ink bg-paper">
+		<header className="border-ink bg-paper sticky top-0 z-40 border-b">
 			<div className="mx-auto flex h-14 max-w-[1440px] items-stretch justify-between px-4 sm:px-6">
-				<a href="#top" className="flex items-center gap-2 font-condensed text-xl tracking-tight">
-					<span aria-hidden className="size-3 bg-red" />
+				<a
+					href="#top"
+					className="font-condensed flex items-center gap-2 text-xl tracking-tight"
+				>
+					<span aria-hidden className="bg-red size-3" />
 					Aadarsha Subedi
 				</a>
 
@@ -54,7 +53,7 @@ export function TopBar({
 								{active === s.id && (
 									<motion.span
 										layoutId="topbar-marker"
-										className="absolute inset-x-3.5 -bottom-px h-[3px] bg-red"
+										className="bg-red absolute inset-x-3.5 -bottom-px h-[3px]"
 										transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
 									/>
 								)}
@@ -64,7 +63,7 @@ export function TopBar({
 					<button
 						type="button"
 						onClick={onOpenIndex}
-						className="ml-3 flex items-center gap-2 self-center px-2.5 py-1.5 text-sm text-ink-2 shadow-[inset_0_0_0_1px_var(--rule)] transition-colors hover:text-ink hover:shadow-[inset_0_0_0_1px_var(--ink)]"
+						className="text-ink-2 hover:text-ink ml-3 flex items-center gap-2 self-center px-2.5 py-1.5 text-sm shadow-[inset_0_0_0_1px_var(--rule)] transition-colors hover:shadow-[inset_0_0_0_1px_var(--ink)]"
 					>
 						Index
 						<kbd className="flex items-center gap-0.5 font-sans text-xs">
@@ -83,28 +82,33 @@ export function TopBar({
 					<Dialog.Portal>
 						<Dialog.Popup
 							className={cn(
-								"fixed inset-0 z-50 flex flex-col bg-red text-red-ink",
-								"transition-[clip-path] duration-(--dur-slow) ease-out-expo [clip-path:inset(0_0_0_0)]",
+								"bg-red text-red-ink fixed inset-0 z-50 flex flex-col",
+								"ease-out-expo transition-[clip-path] duration-(--dur-slow) [clip-path:inset(0_0_0_0)]",
 								"data-[ending-style]:duration-(--dur-base) data-[ending-style]:[clip-path:inset(0_0_100%_0)] data-[starting-style]:[clip-path:inset(0_0_100%_0)]",
 							)}
 						>
-							<div className="flex h-14 items-center justify-between border-b border-red-ink/40 px-4">
-								<Dialog.Title className="font-condensed text-xl">Aadarsha Subedi</Dialog.Title>
-								<Dialog.Close className="flex items-center gap-2 font-medium" aria-label="Close menu">
+							<div className="border-red-ink/40 flex h-14 items-center justify-between border-b px-4">
+								<Dialog.Title className="font-condensed text-xl">
+									Aadarsha Subedi
+								</Dialog.Title>
+								<Dialog.Close
+									className="flex items-center gap-2 font-medium"
+									aria-label="Close menu"
+								>
 									Close <XIcon size={20} aria-hidden />
 								</Dialog.Close>
 							</div>
 							<nav aria-label="Sections" className="flex-1 px-4 pt-6">
 								<ul>
 									{sections.map((s) => (
-										<li key={s.id} className="border-b border-red-ink/40">
+										<li key={s.id} className="border-red-ink/40 border-b">
 											<a
 												href={`#${s.id}`}
 												onClick={() => {
 													setMenuOpen(false);
 													onNavigate?.(s.id);
 												}}
-												className="block py-3 font-condensed text-5xl"
+												className="font-condensed block py-3 text-5xl"
 											>
 												{s.label}
 											</a>

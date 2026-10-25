@@ -20,7 +20,7 @@ export function Section({
 	className?: string;
 }) {
 	return (
-		<section id={id} aria-labelledby={`${id}-title`} className={cn("scroll-mt-16 border-t border-ink", className)}>
+		<section id={id} aria-labelledby={`${id}-title`} className={cn("scroll-mt-24 border-t border-ink", className)}>
 			<div className="grid grid-cols-12 gap-x-4 gap-y-6 pt-5 pb-20 sm:gap-x-6 md:pb-28">
 				<div className="col-span-12 md:col-span-3">
 					<h2 id={`${id}-title`} className="font-condensed text-headline">
