@@ -27,7 +27,7 @@ export function ProjectEntry({
 	const panelId = `project-${project.id}-detail`;
 
 	return (
-		<motion.li layout="position" className="relative border-b border-ink">
+		<motion.li id={`project-${project.id}`} layout="position" className="relative scroll-mt-20 border-b border-ink">
 			{open && (
 				<motion.span
 					layoutId="project-marker"
