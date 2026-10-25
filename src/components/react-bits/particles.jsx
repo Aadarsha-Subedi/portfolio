@@ -1,6 +1,8 @@
 /*
  * Particles from React Bits (https://reactbits.dev), JavaScript + CSS variant.
- * Copied verbatim apart from this header and the CSS import path.
+ * Copied verbatim apart from this header, the CSS import path, and one line in
+ * the cleanup: the original calls loseContext() on unmount, which leaves the
+ * canvas dead when React StrictMode remounts the effect in development.
  */
 import { useEffect, useRef } from 'react';
 import './particles.css';
@@ -863,7 +865,6 @@ const Particles = ({
       [corners, positionBuffer, randomBuffer, colorBuffer, lineBuffer].forEach(buffer => gl.deleteBuffer(buffer));
       gl.deleteVertexArray(dotVao);
       gl.deleteVertexArray(lineVao);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, []);
 
