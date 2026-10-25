@@ -64,7 +64,7 @@ export function SiteNav({
 				logoHref="#top"
 				items={items}
 				cta={{
-					label: "Resume (PDF)",
+					label: "View resume",
 					href: RESUME_URL,
 					onClick: (e) => {
 						e.preventDefault();

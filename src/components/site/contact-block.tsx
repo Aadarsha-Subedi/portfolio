@@ -1,4 +1,4 @@
-import { GithubLogoIcon, LinkedinLogoIcon, CopyIcon, DownloadSimpleIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkedinLogoIcon, CopyIcon, FileTextIcon } from "@phosphor-icons/react";
 
 import { Button, ButtonLink } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
@@ -30,7 +30,7 @@ export function ContactBlock() {
 					<CopyIcon aria-hidden /> Copy email
 				</Button>
 				<ButtonLink variant="secondary" href={RESUME_URL} target="_blank" rel="noreferrer">
-					<DownloadSimpleIcon aria-hidden /> Resume (PDF)
+					<FileTextIcon aria-hidden /> View resume
 				</ButtonLink>
 				<ButtonLink variant="secondary" href={profile.links.linkedin} target="_blank" rel="noreferrer">
 					<LinkedinLogoIcon aria-hidden /> LinkedIn

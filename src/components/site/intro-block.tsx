@@ -1,4 +1,4 @@
-import { DownloadSimpleIcon, EnvelopeSimpleIcon } from "@phosphor-icons/react";
+import { FileTextIcon, EnvelopeSimpleIcon } from "@phosphor-icons/react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { RESUME_URL, profile } from "@/content/resume";
@@ -10,7 +10,7 @@ export function IntroBlock() {
 			<p className="max-w-[34ch] text-xl leading-snug font-medium sm:text-2xl">{profile.summary}</p>
 			<div className="flex flex-wrap gap-2">
 				<ButtonLink href={RESUME_URL} variant="secondary" size="lg" target="_blank" rel="noreferrer">
-					<DownloadSimpleIcon aria-hidden /> Resume (PDF)
+					<FileTextIcon aria-hidden /> View resume
 				</ButtonLink>
 				<ButtonLink
 					href={`mailto:${profile.email}`}

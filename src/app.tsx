@@ -51,7 +51,7 @@ function Site() {
 				run: () => scrollToId(`role-${r.id}`),
 			})),
 			...sections.map((s) => ({ id: `section-${s.id}`, group: "Sections", label: s.label, run: () => scrollToId(s.id) })),
-			{ id: "resume", group: "Actions", label: "Open resume (PDF)", meta: "PDF", run: () => window.open(RESUME_URL, "_blank", "noreferrer") },
+			{ id: "resume", group: "Actions", label: "View resume", meta: "Resume", run: () => window.open(RESUME_URL, "_blank", "noreferrer") },
 			{
 				id: "copy-email",
 				group: "Actions",
