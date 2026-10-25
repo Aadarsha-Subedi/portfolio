@@ -1,16 +1,33 @@
+import {
+	BriefcaseIcon,
+	CodeIcon,
+	EnvelopeSimpleIcon,
+	FileTextIcon,
+	StackIcon,
+	type Icon,
+} from "@phosphor-icons/react";
+
 import PillNav from "@/components/react-bits/pill-nav";
 import { RESUME_URL } from "@/content/resume";
 
-const PHOTO_URL = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/passport-photo.jpeg";
+const PHOTO_URL =
+	"https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/passport-photo.jpeg";
 
-export const sections = [
-	{ id: "work", label: "Work" },
-	{ id: "experience", label: "Experience" },
-	{ id: "skills", label: "Skills" },
-	{ id: "contact", label: "Contact" },
+export const sections: { id: string; label: string; icon: Icon }[] = [
+	{ id: "work", label: "Work", icon: StackIcon },
+	{ id: "experience", label: "Experience", icon: BriefcaseIcon },
+	{ id: "skills", label: "Skills", icon: CodeIcon },
+	{ id: "contact", label: "Contact", icon: EnvelopeSimpleIcon },
 ];
 
-const items = [...sections.map((s) => ({ label: s.label, href: `#${s.id}` })), { label: "Resume", href: RESUME_URL }];
+const items = [
+	...sections.map(({ id, label, icon: SectionIcon }) => ({
+		label,
+		href: `#${id}`,
+		icon: <SectionIcon aria-hidden />,
+	})),
+	{ label: "Resume", href: RESUME_URL, icon: <FileTextIcon aria-hidden /> },
+];
 
 /*
  * The site's navigation: React Bits PillNav with Aadarsha's photo in the
@@ -26,6 +43,7 @@ export function SiteNav() {
 					logoAlt="Aadarsha Subedi, back to top"
 					logoHref="#top"
 					items={items}
+					size="lg"
 					itemStyle="pill"
 					hoverEffect="fill"
 					indicator="dot"
