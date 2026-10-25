@@ -1,17 +1,128 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
+
+@font-face {
+	font-family: "Archivo";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 100 900;
+	font-stretch: 62% 125%;
+	src: url("@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2")
+		format("woff2-variations");
+}
+
+/*
+ * Swiss grid tokens. One ground, one ink, one red that owns whole blocks.
+ * Light only: the visitor is a recruiter at a desk in daylight.
+ */
+:root {
+	--paper: oklch(0.975 0.003 250);
+	--paper-2: oklch(0.945 0.004 250);
+	--ink: oklch(0.19 0.012 260);
+	--ink-2: oklch(0.43 0.012 260);
+	--rule: oklch(0.19 0.012 260 / 0.16);
+	--red: oklch(0.555 0.215 28);
+	--red-ink: oklch(0.985 0.01 28);
+	--red-ink-2: oklch(0.93 0.04 28);
+	--red-deep: oklch(0.48 0.19 28);
+
+	--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+	--dur-fast: 140ms;
+	--dur-base: 240ms;
+	--dur-slow: 420ms;
+
+	color-scheme: light;
+}
 
 @theme inline {
-	--font-space-grotesk: "Space Grotesk", sans-serif;
-	--color-primary: var(--color-neutral-800);
-	--color-secondary: var(--color-neutral-500);
-	--shadow-aceternity:
-		0px 2px 3px -1px rgba(0, 0, 0, 0.1),
-		0px 1px 0px 0px rgba(25, 28, 33, 0.02),
-		0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+	--color-paper: var(--paper);
+	--color-paper-2: var(--paper-2);
+	--color-ink: var(--ink);
+	--color-ink-2: var(--ink-2);
+	--color-rule: var(--rule);
+	--color-red: var(--red);
+	--color-red-ink: var(--red-ink);
+	--color-red-ink-2: var(--red-ink-2);
+	--color-red-deep: var(--red-deep);
+
+	--font-sans: "Archivo", ui-sans-serif, sans-serif;
+
+	--ease-out-expo: var(--ease-out);
+	--ease-swiss: var(--ease-in-out);
+
+	--text-display: clamp(3.25rem, 1.2rem + 8.4vw, 9.5rem);
+	--text-display--line-height: 0.86;
+	--text-display--letter-spacing: -0.035em;
+	--text-headline: clamp(2rem, 1.2rem + 3.2vw, 4rem);
+	--text-headline--line-height: 0.95;
+	--text-headline--letter-spacing: -0.03em;
+	--text-numeral: clamp(2.25rem, 1.4rem + 3vw, 4.5rem);
+	--text-numeral--line-height: 0.9;
+	--text-numeral--letter-spacing: -0.03em;
 }
-.dark {
-	--color-primary: var(--color-neutral-100);
-	--color-secondary: var(--color-neutral-400);
+
+@layer base {
+	html {
+		background: var(--paper);
+		color: var(--ink);
+		font-family: var(--font-sans);
+		font-size: 100%;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		scrollbar-color: var(--ink) var(--paper-2);
+	}
+
+	body {
+		font-size: 1.0625rem;
+		line-height: 1.5;
+		font-variant-numeric: tabular-nums;
+	}
+
+	h1,
+	h2,
+	h3 {
+		text-wrap: balance;
+	}
+
+	p {
+		text-wrap: pretty;
+	}
+
+	kbd {
+		font-family: inherit;
+	}
+
+	::selection {
+		background: var(--red);
+		color: var(--red-ink);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--red);
+		outline-offset: 3px;
+	}
+
+	a {
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+	}
+}
+
+/* Condensed display voice: the name, the years, section titles. */
+@utility font-condensed {
+	font-stretch: 68%;
+	font-weight: 780;
+}
+
+@utility font-wide {
+	font-stretch: 112%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 1ms !important;
+		scroll-behavior: auto !important;
+	}
 }
