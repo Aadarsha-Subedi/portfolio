@@ -35,10 +35,23 @@ function useNameBox(name: string) {
 			const size = Math.min(MAX_SIZE, (MAX_SIZE * room) / measure(MAX_SIZE));
 			setBox({ size, width: Math.ceil(measure(size) / 0.9) + 2 });
 		};
-		const observer = new ResizeObserver(fit);
-		observer.observe(line);
-		document.fonts?.ready.then(fit);
-		return () => observer.disconnect();
+		/*
+		 * Wait for the name's own weight to load before measuring. Measured with
+		 * a fallback font, the box comes out wider than the drawn name and leaves
+		 * a gap before the comma.
+		 */
+		let alive = true;
+		const observer = new ResizeObserver(() => alive && fit());
+		const ready = document.fonts?.load(`${FONT_WEIGHT} ${MAX_SIZE}px ${family}`, name) ?? Promise.resolve();
+		ready.then(() => {
+			if (!alive) return;
+			fit();
+			observer.observe(line);
+		}, fit);
+		return () => {
+			alive = false;
+			observer.disconnect();
+		};
 	}, [name]);
 
 	return { lineRef, box };
