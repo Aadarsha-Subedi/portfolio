@@ -1,50 +1,13 @@
 import type { MagicBentoItem } from "@/components/react-bits/magic-bento";
+import { CompanyLogo } from "@/components/site/company-logo";
 import { TechChips } from "@/components/site/tech-chip";
-import { projects } from "@/content/resume";
-
-const R2 = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev";
+import { experience, projects } from "@/content/resume";
 
 /*
  * The hero bento: two roles, then two projects. Every card shows a header,
  * a title, a few points on the work and the stack as chips. Roles carry the
  * company's logo in the header.
  */
-
-function CompanyLogo({
-	src,
-	name,
-	href,
-}: {
-	src?: string;
-	name: string;
-	href?: string;
-}) {
-	const initials = name
-		.split(" ")
-		.map((word) => word[0])
-		.join("")
-		.slice(0, 2);
-	const className = `ring-ink/10 grid size-9 flex-none place-items-center overflow-hidden rounded-full text-[13px] font-semibold ring-1 ${src ? "bg-white p-1.5" : "bg-ink text-paper"}`;
-	const mark = src ? (
-		<img src={src} alt="" className="size-full object-contain" />
-	) : (
-		initials
-	);
-	if (!href) return <span className={className}>{mark}</span>;
-	return (
-		<a
-			href={href}
-			target="_blank"
-			rel="noreferrer"
-			aria-label={`${name} website (opens in a new tab)`}
-			// Keep the click from also firing the card's own click effect.
-			onClick={(event) => event.stopPropagation()}
-			className={`${className} transition-shadow hover:ring-sky-400 focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:outline-none`}
-		>
-			{mark}
-		</a>
-	);
-}
 
 /* A card replaces the bento's default layout so it can hold a list and chips. */
 function WorkCard({
@@ -87,6 +50,14 @@ function project(id: string) {
 	return found;
 }
 
+function role(id: string) {
+	const found = experience.find((entry) => entry.id === id);
+	if (!found) throw new Error(`No role "${id}" in resume.ts`);
+	return found;
+}
+
+const vanarx = role("vanarx");
+const pcs = role("pcs");
 const resolveAi = project("resolve-ai");
 const proGoal = project("pro-goal");
 
@@ -95,11 +66,7 @@ export const bentoItems: MagicBentoItem[] = [
 		title: "Vanarx Tech",
 		content: (
 			<WorkCard
-				logo={{
-					src: `${R2}/vanarx-logo.svg`,
-					name: "Vanarx Tech",
-					href: "https://vanarxtech.com/",
-				}}
+				logo={{ src: vanarx.logo, name: vanarx.company, href: vanarx.website }}
 				label="Full Stack Engineer · 2025–26"
 				title="Vanarx Tech"
 				points={[
@@ -108,19 +75,7 @@ export const bentoItems: MagicBentoItem[] = [
 					"Led usage-based AI billing and ChargeBee subscriptions.",
 					"Cut response times by about 35% with caching and query optimizations.",
 				]}
-				stack={[
-					"Python",
-					"Django",
-					"Django REST Framework",
-					"PostgreSQL",
-					"Redis",
-					"ReactJS",
-					"TypeScript",
-					"Tailwind CSS",
-					"shadcn/ui",
-					"Meta Graph API",
-					"Postman",
-				]}
+				stack={vanarx.stack}
 			/>
 		),
 		colSpan: 2,
@@ -129,11 +84,7 @@ export const bentoItems: MagicBentoItem[] = [
 		title: "Professional Computer Systems",
 		content: (
 			<WorkCard
-				logo={{
-					src: `${R2}/pcs-logo.png`,
-					name: "Professional Computer Systems",
-					href: "https://pcs.com.np/",
-				}}
+				logo={{ src: pcs.logo, name: pcs.company, href: pcs.website }}
 				label="Full Stack Developer Intern · 2023"
 				title="Professional Computer Systems"
 				points={[
@@ -142,7 +93,7 @@ export const bentoItems: MagicBentoItem[] = [
 					"Shipped course, attendance and leave workflows.",
 					"Integrated REST APIs and tested them in Postman across agile sprints.",
 				]}
-				stack={["ReactJS", "Tailwind CSS", "Java", "Spring Boot", "Postman"]}
+				stack={pcs.stack}
 			/>
 		),
 		colSpan: 2,

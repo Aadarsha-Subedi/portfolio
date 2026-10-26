@@ -31,7 +31,10 @@ export interface Role {
 	start: string;
 	end: string;
 	years: string;
+	website: string;
+	logo: string;
 	highlights: string[];
+	stack: string[];
 	figures?: { value: string; label: string }[];
 }
 
@@ -44,12 +47,27 @@ export const experience: Role[] = [
 		start: "Nov 2025",
 		end: "Oct 2026",
 		years: "2025–26",
+		website: "https://vanarxtech.com/",
+		logo: "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/vanarx-logo.svg",
 		highlights: [
 			"Built a real-time inbox for Socify, a customer-messaging and CRM product, connecting Instagram, Messenger, WhatsApp and TikTok with full data separation between businesses.",
 			"Integrated Evolution API so customers can connect existing WhatsApp numbers, reducing onboarding friction from Meta’s pricing and number restrictions.",
 			"Implemented post management, comment moderation and comment automation across Facebook, Instagram and TikTok.",
 			"Led usage-based billing for AI replies and ChargeBee subscriptions.",
 			"Reduced response times on optimized pages through caching and fewer database queries.",
+		],
+		stack: [
+			"Python",
+			"Django",
+			"Django REST Framework",
+			"PostgreSQL",
+			"Redis",
+			"ReactJS",
+			"TypeScript",
+			"Tailwind CSS",
+			"shadcn/ui",
+			"Meta Graph API",
+			"Postman",
 		],
 		figures: [
 			{ value: "30+", label: "businesses on Socify" },
@@ -66,10 +84,13 @@ export const experience: Role[] = [
 		start: "Aug 2023",
 		end: "Nov 2023",
 		years: "2023",
+		website: "https://pcs.com.np/",
+		logo: "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/pcs-logo.png",
 		highlights: [
 			"Built a School Management System with ReactJS and Tailwind CSS on the frontend and Spring Boot on the backend: authentication, role-based access for admins and students, course management, attendance and leave workflows.",
 			"Integrated the frontend with REST APIs and tested them with Postman in agile sprints.",
 		],
+		stack: ["ReactJS", "Tailwind CSS", "Java", "Spring Boot", "Postman"],
 	},
 ];
 
