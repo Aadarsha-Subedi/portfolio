@@ -2,6 +2,7 @@ import { ArrowLeftIcon } from "@phosphor-icons/react";
 
 import FuzzyText from "@/components/react-bits/fuzzy-text";
 import { ParticleField } from "@/components/site/particle-field";
+import { SiteNav } from "@/components/site/site-nav";
 import { ButtonLink } from "@/components/ui/button";
 import { iconProps } from "@/components/ui/icons";
 
@@ -9,7 +10,8 @@ export function NotFound() {
 	return (
 		<>
 			<ParticleField />
-			<main className="mx-auto flex min-h-dvh max-w-[1440px] flex-col justify-center px-4 py-16 sm:px-6">
+			<SiteNav />
+			<main className="mx-auto flex min-h-[calc(100dvh-5rem)] max-w-[1440px] flex-col justify-center px-4 pb-16 sm:px-6">
 				<div className="grid grid-cols-12 gap-x-4 gap-y-8 sm:gap-x-6">
 					<div className="text-ink col-span-12 -ml-1 lg:col-span-8">
 						<FuzzyText

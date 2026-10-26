@@ -23,7 +23,7 @@ export const sections: { id: string; label: string; icon: Icon }[] = [
 const items = [
 	...sections.map(({ id, label, icon: SectionIcon }) => ({
 		label,
-		href: `#${id}`,
+		href: `/#${id}`,
 		icon: <SectionIcon aria-hidden />,
 	})),
 	{ label: "Resume", href: RESUME_URL, icon: <FileTextIcon aria-hidden /> },
@@ -41,14 +41,13 @@ export function SiteNav() {
 					className="site-nav"
 					logo={<img src={PHOTO_URL} alt="" draggable={false} />}
 					logoAlt="Aadarsha Subedi, back to top"
-					logoHref="#top"
+					logoHref="/#top"
 					items={items}
 					size="lg"
 					itemStyle="pill"
 					hoverEffect="fill"
 					indicator="dot"
 					theme="light"
-					size='lg'
 					onItemClick={(item, _index, e) => {
 						if (item.href === RESUME_URL) {
 							e.preventDefault();
