@@ -13,7 +13,7 @@ export const profile = {
 		"Full-stack engineer (Python/Django, ReactJS/TypeScript) with a year of production experience building multi-tenant, AI-powered SaaS. I own features end to end, from architecture to maintainable code.",
 	/* Drives the age beside the hero name, as YYYY-MM-DD. */
 	birthDate: "2003-12-10",
-	/* The one or two lines under the hero's designation. */
+	/* The lines under the hero's designation. Tech names with a logo show as chips. */
 	intro:
 		"I build AI-powered applications using Django and ReactJS, building features end-to-end and writing maintainable and scalable code through design patterns.",
 	email: "aadarshasubedi406@gmail.com",
