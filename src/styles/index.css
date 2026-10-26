@@ -156,7 +156,14 @@ html::-webkit-scrollbar {
 	display: none;
 }
 
-/* Project screenshots are wide app views: keep their top-left corner, where the app's navigation sits, in frame. */
+/*
+ * Project screenshots are wide app views. Each image fills its own panel rather
+ * than a wider strip, so the open one shows the whole screen, and the narrow
+ * closed ones keep the top-left corner, where the app's navigation sits.
+ */
+.project-gallery .ag-panel__media {
+	width: 100%;
+}
 .project-gallery .ag-panel__media img {
 	object-position: left top;
 }
