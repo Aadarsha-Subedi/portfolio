@@ -19,7 +19,7 @@ export function Emphasis({ text }: { text: string }) {
 }
 
 /*
- * Experience as an accordion: one row per role, the latest open. Each row
+ * Experience as an accordion: one row per role, all open. Each row
  * opens onto the resume points, with the figures in bold, and the stack.
  */
 export function ExperienceSection() {
@@ -36,7 +36,8 @@ export function ExperienceSection() {
 					</h2>
 				</div>
 				<Accordion.Root
-					defaultValue={[experience[0].id]}
+					multiple
+					defaultValue={experience.map((role) => role.id)}
 					className="border-ink/15 col-span-12 flex flex-col border-y md:col-span-9"
 				>
 					{experience.map((role) => (
