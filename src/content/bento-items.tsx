@@ -1,9 +1,9 @@
-import proGoal from "@/assets/projects/pro-goal.webp";
-import resolveAi from "@/assets/projects/resolve-ai.webp";
 import type { MagicBentoItem } from "@/components/react-bits/magic-bento";
 
+const R2 = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev";
+
 /*
- * The hero bento: two projects and two roles, all the same size. Projects
+ * The hero bento: two roles, then two projects, all the same size. Projects
  * show a framed screenshot above their summary; roles show the company's
  * logo, the role and a few points on the work.
  */
@@ -54,24 +54,10 @@ function RoleCard({ logo, company, role, points }: { logo?: string; company: str
 
 export const bentoItems: MagicBentoItem[] = [
 	{
-		label: "Project",
-		title: "ResolveAI",
-		description: "A multi-tenant AI support desk with human-reviewed reply drafts.",
-		visual: <Screenshot src={resolveAi} alt="The ResolveAI dashboard" />,
-		colSpan: 2,
-	},
-	{
-		label: "Project",
-		title: "Pro-Goal",
-		description: "Project management with tasks, versioned notes and Slack sync.",
-		visual: <Screenshot src={proGoal} alt="A Pro-Goal task list" />,
-		colSpan: 2,
-	},
-	{
 		title: "Vanarx Tech",
 		content: (
 			<RoleCard
-				logo="https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/vanarx-logo.svg"
+				logo={`${R2}/vanarx-logo.svg`}
 				company="Vanarx Tech"
 				role="Full Stack Engineer · 2025–26"
 				points={[
@@ -88,7 +74,7 @@ export const bentoItems: MagicBentoItem[] = [
 		title: "Professional Computer Systems",
 		content: (
 			<RoleCard
-				logo="https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/pcs-logo.png"
+				logo={`${R2}/pcs-logo.png`}
 				company="Professional Computer Systems"
 				role="Full Stack Developer Intern · 2023"
 				points={[
@@ -99,6 +85,20 @@ export const bentoItems: MagicBentoItem[] = [
 				]}
 			/>
 		),
+		colSpan: 2,
+	},
+	{
+		label: "Project",
+		title: "ResolveAI",
+		description: "A multi-tenant AI support desk with human-reviewed reply drafts.",
+		visual: <Screenshot src={`${R2}/resolve-ai-hero.png`} alt="The ResolveAI dashboard" />,
+		colSpan: 2,
+	},
+	{
+		label: "Project",
+		title: "Pro-Goal",
+		description: "Project management with tasks, versioned notes and Slack sync.",
+		visual: <Screenshot src={`${R2}/pro-goal-hero.png`} alt="A Pro-Goal task list" />,
 		colSpan: 2,
 	},
 ];

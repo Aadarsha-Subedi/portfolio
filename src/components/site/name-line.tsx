@@ -5,7 +5,7 @@ import TechText from "@/components/react-bits/tech-text";
 
 const FONT_WEIGHT = 600;
 const LETTER_SPACING = 0.03;
-const MAX_SIZE = 56;
+const MAX_SIZE = 44;
 
 /*
  * TechText fits its wordmark into the box it is given and keeps a 5% margin on

@@ -26,7 +26,7 @@ export function Hero() {
 	return (
 		<section
 			aria-label="Introduction"
-			className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-[1392px] grid-cols-1 content-center items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
+			className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-[1392px] grid-cols-1 content-center items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]"
 		>
 			<div className="flex flex-col gap-4">
 				<NameLine name={profile.name} age={ageOn(profile.birthDate)} />
@@ -35,7 +35,7 @@ export function Hero() {
 				 * draws them a few percent wider than their layout box. The words are
 				 * left unclipped and the block gets extra side padding to cover it.
 				 */}
-				<p className="font-condensed text-ink flex items-center text-[clamp(2.25rem,1rem+4vw,4.5rem)] leading-none">
+				<p className="font-condensed text-ink flex items-center text-[clamp(2.25rem,1rem+3vw,3.75rem)] leading-none">
 					<RotatingText
 						texts={disciplines}
 						effect="flip"
@@ -58,7 +58,7 @@ export function Hero() {
 			<MagicBento
 				items={bentoItems}
 				columns={4}
-				rowHeight={300}
+				rowHeight={340}
 				gap={12}
 				radius={20}
 				enableBorderGlow
