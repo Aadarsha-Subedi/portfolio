@@ -55,7 +55,7 @@ export const experience: Role[] = [
 			"Integrated Evolution API so customers can connect existing WhatsApp numbers, reducing onboarding friction from Meta’s pricing and number restrictions.",
 			"Implemented post management, comment management/moderation and comment automation across Facebook, Instagram and TikTok.",
 			"Led usage-based billing for AI replies (about **500,000 credits** purchased and used by clients) and ChargeBee subscriptions.",
-			"Cut response times by about **35%** on optimized pages through caching and fewer database queries.",
+			"Cut response times by about **35%** with caching and query optimizations.",
 		],
 		stack: [
 			"Python",
