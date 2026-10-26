@@ -155,24 +155,3 @@ html {
 html::-webkit-scrollbar {
 	display: none;
 }
-
-/*
- * Project screenshots are wide app views. Each image fills its own panel rather
- * than a wider strip, so the open one shows the whole screen, and the narrow
- * closed ones keep the top-left corner, where the app's navigation sits.
- */
-.project-gallery .ag-panel__media {
-	width: 100%;
-}
-.project-gallery .ag-panel__media img {
-	object-position: left top;
-}
-
-/*
- * The gallery animates --ag-dim on each panel's image, but the overlay that reads
- * it is the image's sibling, so it never sees the change and every panel stays
- * dimmed. Clear the dim on the open panel here.
- */
-.project-gallery .ag-panel--active .ag-panel__overlay {
-	--ag-dim: 0;
-}
