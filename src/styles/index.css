@@ -140,3 +140,9 @@
 .site-nav .pill-nav__mark img {
 	object-fit: cover;
 }
+
+/* The hero bento's role cards use the header icon slot for a company logo, so let it grow past the 16px icon size. */
+.hero-bento .magic-bento__icon {
+	width: auto;
+	height: auto;
+}

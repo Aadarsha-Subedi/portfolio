@@ -8,7 +8,7 @@ const disciplines = ["Full Stack", "Frontend", "Backend"];
  * The first screen, split into two halves at the page's fixed width. The left
  * half holds the designation, where only the discipline rotates and
  * "Engineer" holds still. The right half holds a bento of two projects and
- * two roles, lit in the primary button's sky blue.
+ * two roles in four equal cards, lit in the primary button's sky blue.
  */
 export function Hero() {
 	return (
@@ -55,6 +55,7 @@ export function Hero() {
 				intro
 				theme="light"
 				glowColor="#0084d1"
+				className="hero-bento"
 			/>
 		</section>
 	);
