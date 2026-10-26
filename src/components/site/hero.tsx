@@ -15,7 +15,7 @@ export function Hero() {
 			{/*
 			 * The flip effect pivots letters around a point behind the text, which
 			 * draws them a few percent wider than their layout box. The words are
-			 * left unclipped and the white block gets extra side padding to cover it.
+			 * left unclipped and the block gets extra side padding to cover it.
 			 */}
 			<div className="flex items-center">
 				<RotatingText
@@ -23,13 +23,13 @@ export function Hero() {
 					effect="flip"
 					direction="up"
 					highlight
-					highlightColor="#ffffff"
+					highlightColor="transparent"
 					splitBy="words"
 					staggerFrom="last"
 					staggerDuration={0.025}
 					splitLevelClassName="pb-0.5 sm:pb-1 md:pb-1"
 					rotationInterval={2000}
-					mainClassName="px-[0.42em] font-condensed [&_.text-rotate-space]:pr-[0.22em] text-[clamp(2.25rem,1rem+4vw,4.5rem)] leading-none shadow-[0_1px_2px_oklch(0.19_0.012_260/0.08),0_8px_24px_-12px_oklch(0.19_0.012_260/0.25)]"
+					mainClassName="-ml-[0.42em] px-[0.42em] font-condensed [&_.text-rotate-space]:pr-[0.22em] text-[clamp(2.25rem,1rem+4vw,4.5rem)] leading-none text-ink"
 				/>
 			</div>
 			<div aria-hidden className="hidden lg:block" />
