@@ -2,13 +2,11 @@ import {
 	BriefcaseIcon,
 	CodeIcon,
 	EnvelopeSimpleIcon,
-	FileTextIcon,
 	StackIcon,
 	type Icon,
 } from "@phosphor-icons/react";
 
 import PillNav from "@/components/react-bits/pill-nav";
-import { RESUME_URL } from "@/content/resume";
 
 const PHOTO_URL =
 	"https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/passport-photo.jpeg";
@@ -26,7 +24,6 @@ const items = [
 		href: `/#${id}`,
 		icon: <SectionIcon aria-hidden />,
 	})),
-	{ label: "Resume", href: RESUME_URL, icon: <FileTextIcon aria-hidden /> },
 ];
 
 /*
@@ -48,12 +45,6 @@ export function SiteNav() {
 					hoverEffect="fill"
 					indicator="dot"
 					theme="light"
-					onItemClick={(item, _index, e) => {
-						if (item.href === RESUME_URL) {
-							e.preventDefault();
-							window.open(RESUME_URL, "_blank", "noreferrer");
-						}
-					}}
 				/>
 			</div>
 		</header>
