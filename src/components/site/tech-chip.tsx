@@ -2,6 +2,7 @@ const ICONS = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev";
 
 /* Logos for the stack chips, keyed by the name shown on the chip. A name without a logo gets a text-only chip. */
 const icons: Record<string, string> = {
+	Cloudflare: "cloudflare.png",
 	Django: "django.png",
 	"Django REST Framework": "django-rest-framework.png",
 	Docker: "docker.png",
