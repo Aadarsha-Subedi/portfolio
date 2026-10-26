@@ -40,7 +40,7 @@ function WorkCard({
 	stack: string[];
 }) {
 	return (
-		<>
+		<div data-bento-body className="flex flex-col gap-3">
 			<div className="magic-bento__header">
 				{logo && <CompanyLogo src={logo.src} name={logo.name} />}
 				<span className="magic-bento__label">{label}</span>
@@ -51,10 +51,10 @@ function WorkCard({
 					<li key={point}>{point}</li>
 				))}
 			</ul>
-			<div className="mt-auto pt-1">
+			<div className="pt-1">
 				<TechChips items={stack} />
 			</div>
-		</>
+		</div>
 	);
 }
 
