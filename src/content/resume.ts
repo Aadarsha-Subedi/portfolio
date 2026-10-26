@@ -19,9 +19,13 @@ export const profile = {
 	intro:
 		"I build AI-powered applications using Django and ReactJS, building features end-to-end and writing maintainable and scalable code through design patterns.",
 	email: "aadarshasubedi406@gmail.com",
+	phone: "+977 9766888591",
 	links: {
 		github: "https://github.com/Aadarsha-Subedi",
 		linkedin: "https://linkedin.com/in/aadarsha-subedi-dev",
+		whatsapp: "https://wa.link/nl18hf",
+		/* This site's own source. */
+		portfolio: "https://github.com/Aadarsha-Subedi/portfolio",
 	},
 };
 
@@ -111,6 +115,7 @@ export const projects: Project[] = [
 		details: [
 			"Customers submit tickets through a public workspace portal; agents reply by Gmail, with ticket assignment, a knowledge base, role-based access, an audit log and a dashboard.",
 			"Hybrid RAG (vector + PostgreSQL full-text search) powers AI reply drafts that an agent reviews before sending.",
+			"Each workspace runs the default AI agent or plugs in its own OpenAI or Gemini agent through an API key.",
 			"A reusable Django/DRF foundation: standardized responses, pagination, filtering, a cache manager, soft deletes, structured logging and secrets management. Deployed on Cloudflare Workers, Pages and Containers.",
 		],
 		stack: [

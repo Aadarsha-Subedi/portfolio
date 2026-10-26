@@ -1,3 +1,4 @@
+import { ParticleField } from "@/components/site/particle-field";
 import { ProjectCard } from "@/components/site/projects-section";
 import { SiteNav } from "@/components/site/site-nav";
 import { projects } from "@/content/resume";
@@ -12,6 +13,7 @@ const featured = projects.filter((project) => project.featured);
 export function ProjectsPreview() {
 	return (
 		<>
+			<ParticleField />
 			<SiteNav />
 			<main className="mx-auto max-w-[1392px] px-4 pb-32 sm:px-6">
 				<header className="py-16">
