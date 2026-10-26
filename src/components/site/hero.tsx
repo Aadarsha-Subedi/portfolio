@@ -1,11 +1,13 @@
+import { EnvelopeSimpleIcon, FileTextIcon } from "@phosphor-icons/react";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 
 import MagicBento from "@/components/react-bits/magic-bento";
 import RotatingText from "@/components/react-bits/rotating-text";
 import { NameLine } from "@/components/site/name-line";
 import { TextWithTech } from "@/components/site/tech-chip";
+import { ButtonLink } from "@/components/ui/button";
 import { bentoItems } from "@/content/bento-items";
-import { profile } from "@/content/resume";
+import { profile, RESUME_URL } from "@/content/resume";
 
 const disciplines = ["Full Stack", "Frontend", "Backend"];
 
@@ -21,7 +23,7 @@ function ageOn(birthDate: string, today = new Date()) {
 /*
  * The first screen, split into two halves at the page's fixed width. The left
  * half holds the name and age, the designation (only the discipline rotates
- * and "Engineer" holds still) and a short intro. The right half holds a bento of
+ * and "Engineer" holds still), a short intro and the resume and email buttons. The right half holds a bento of
  * two roles and two projects, each card as tall as its content, lit in the primary button's
  * sky blue.
  */
@@ -61,6 +63,16 @@ export function Hero() {
 				<p className="text-ink-2 max-w-[34rem] text-base text-pretty sm:text-lg">
 					<TextWithTech text={profile.intro} />
 				</p>
+				<div className="flex flex-wrap items-center gap-2 pt-1">
+					<ButtonLink href={RESUME_URL} target="_blank" rel="noreferrer">
+						<FileTextIcon aria-hidden />
+						View resume
+					</ButtonLink>
+					<ButtonLink variant="secondary" href={`mailto:${profile.email}`}>
+						<EnvelopeSimpleIcon aria-hidden />
+						Email me
+					</ButtonLink>
+				</div>
 			</div>
 			<MasonryBento />
 		</section>
