@@ -209,8 +209,8 @@ export const skills: { group: string; items: string[] }[] = [
 	{ group: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "HTML/CSS"] },
 	{ group: "Backend", items: ["Django", "Django REST Framework", "Spring Boot", "Express.js"] },
 	{ group: "Frontend", items: ["ReactJS", "Tailwind CSS", "shadcn/ui", "TanStack"] },
-	{ group: "Databases", items: ["PostgreSQL", "pgvector", "MongoDB", "Redis"] },
-	{ group: "Deployment", items: ["Docker", "GitHub Actions", "AWS EC2", "AWS Bedrock", "Cloudflare"] },
+	{ group: "Databases", items: ["PostgreSQL", "MongoDB", "Redis"] },
+	{ group: "Deployment", items: ["Docker", "Cloudflare"] },
 	{ group: "Monitoring", items: ["Sentry", "Cloudflare"] },
-	{ group: "Tools", items: ["Git", "GitHub", "Jira", "Slack", "Postman", "Apidog"] },
+	{ group: "Tools", items: ["Git", "GitHub", "Jira", "Slack", "Postman"] },
 ];

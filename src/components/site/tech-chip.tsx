@@ -3,19 +3,26 @@ const ICONS = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev";
 /* Logos for the stack chips, keyed by the name shown on the chip. A name without a logo gets a text-only chip. */
 const icons: Record<string, string> = {
 	Cloudflare: "cloudflare.png",
-	Django: "django.png",
 	"Django REST Framework": "django-rest-framework.png",
+	Django: "django.png",
 	Docker: "docker.png",
+	"Express.js": "express-js.png",
+	Git: "git.png",
+	GitHub: "github.png",
+	"HTML/CSS": "html.png",
 	Java: "java.png",
+	Jira: "jira.png",
 	"Meta Graph API": "meta.png",
+	MongoDB: "mongo-db.png",
 	PostgreSQL: "postgreSQL.png",
 	Postman: "postman.png",
 	Python: "python.png?v=2",
 	ReactJS: "reactjs.png",
 	Redis: "redis.png",
+	Sentry: "sentry.png",
 	"shadcn/ui": "shadcn.png",
-	Slack: "slack.png",
 	"Slack API": "slack.png",
+	Slack: "slack.png",
 	"Spring Boot": "spring-boot.png",
 	"Tailwind CSS": "tailwindcss.png",
 	TypeScript: "typescript.png",
@@ -24,7 +31,7 @@ const icons: Record<string, string> = {
 const sizes = {
 	sm: { chip: "h-6 gap-1.5 px-2 text-xs text-ink-2", icon: "size-3.5" },
 	md: { chip: "h-7 gap-1.5 px-2 text-[0.85em] align-middle text-ink-2", icon: "size-4" },
-	lg: { chip: "h-10 gap-2 px-3.5 text-[15px] text-ink", icon: "size-5" },
+	lg: { chip: "h-10 gap-2 rounded-full! px-4 text-[15px] text-ink", icon: "size-5" },
 };
 
 /* A tech name with its logo. "md" sits inline in running text, "sm" fills the bento's stack lists and "lg" the Skills section. */
