@@ -24,7 +24,7 @@ function WorkCard({
 	stack: string[];
 }) {
 	return (
-		<div data-bento-body className="flex flex-col gap-3">
+		<div data-bento-body className="flex flex-1 flex-col gap-3">
 			<div className="magic-bento__header">
 				{logo && (
 					<CompanyLogo src={logo.src} name={logo.name} href={logo.href} />
@@ -37,6 +37,8 @@ function WorkCard({
 					<li key={point}>{point}</li>
 				))}
 			</ul>
+			{/* Takes up any height the card has beyond its content, so the chips sit on the card's bottom edge. */}
+			<div data-bento-spacer className="-my-1.5 flex-1" />
 			<div className="pt-1">
 				<TechChips items={stack} />
 			</div>

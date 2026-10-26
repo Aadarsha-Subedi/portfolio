@@ -100,7 +100,13 @@ function MasonryBento() {
 		if (!root) return;
 		const bodies = Array.from(root.querySelectorAll<HTMLElement>("[data-bento-body]"));
 		const measure = () => {
-			const next = bodies.map((body) => body.offsetHeight + PAD * 2);
+			// A card stretched to fill its column grows its spacer, so leave the spacer out to get the content's own height.
+			const next = bodies.map(
+				(body) =>
+					body.offsetHeight -
+					(body.querySelector<HTMLElement>("[data-bento-spacer]")?.offsetHeight ?? 0) +
+					PAD * 2,
+			);
 			setHeights((current) => {
 				if (current.join() === next.join()) return current;
 				setExtra([]);
