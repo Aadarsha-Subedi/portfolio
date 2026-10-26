@@ -245,7 +245,7 @@ export function Gallery() {
 						<div className="mt-6 flex flex-wrap gap-1.5">
 							<Tag>Django</Tag>
 							<Tag>PostgreSQL</Tag>
-							<TagList items={["React", "Tailwind CSS", "Cloudflare"]} />
+							<TagList items={["ReactJS", "Tailwind CSS", "Cloudflare"]} />
 						</div>
 					</Specimen>
 

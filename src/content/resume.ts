@@ -10,12 +10,12 @@ export const profile = {
 	role: "Full Stack Engineer",
 	location: "Kathmandu, Nepal",
 	summary:
-		"Full-stack engineer (Python/Django, React/TypeScript) with a year of production experience building multi-tenant, AI-powered SaaS. I own features end to end, from architecture to maintainable code.",
+		"Full-stack engineer (Python/Django, ReactJS/TypeScript) with a year of production experience building multi-tenant, AI-powered SaaS. I own features end to end, from architecture to maintainable code.",
 	/* Drives the age beside the hero name, as YYYY-MM-DD. */
 	birthDate: "2003-12-10",
 	/* The one or two lines under the hero's designation. */
 	intro:
-		"I build multi-tenant, AI-powered SaaS with Django and React, and own each feature end to end, from architecture to shipped code.",
+		"I build multi-tenant, AI-powered SaaS with Django and ReactJS, and own each feature end to end, from architecture to shipped code.",
 	email: "aadarshasubedi406@gmail.com",
 	links: {
 		github: "https://github.com/Aadarsha-Subedi",
@@ -67,7 +67,7 @@ export const experience: Role[] = [
 		end: "Nov 2023",
 		years: "2023",
 		highlights: [
-			"Built a School Management System with React and Tailwind CSS on the frontend and Spring Boot on the backend: authentication, role-based access for admins and students, course management, attendance and leave workflows.",
+			"Built a School Management System with ReactJS and Tailwind CSS on the frontend and Spring Boot on the backend: authentication, role-based access for admins and students, course management, attendance and leave workflows.",
 			"Integrated the frontend with REST APIs and tested them with Postman in agile sprints.",
 		],
 	},
@@ -95,7 +95,7 @@ export const projects: Project[] = [
 			"Hybrid RAG (vector + PostgreSQL full-text search) powers AI reply drafts that an agent reviews before sending.",
 			"A reusable Django/DRF foundation: standardized responses, pagination, filtering, a cache manager, soft deletes, structured logging and secrets management. Deployed on Cloudflare Workers, Pages and Containers.",
 		],
-		stack: ["Django", "DRF", "PostgreSQL", "Redis", "React", "Tailwind CSS", "shadcn/ui", "Docker", "Cloudflare"],
+		stack: ["Django", "Django REST Framework", "PostgreSQL", "Redis", "ReactJS", "Tailwind CSS", "shadcn/ui", "Docker", "Cloudflare"],
 		live: "https://resolve-ai.aadarshasubedi20.workers.dev/",
 		source: "https://github.com/Aadarsha-Subedi/resolve-ai",
 		featured: true,
@@ -109,7 +109,7 @@ export const projects: Project[] = [
 			"Activity tracking, note versioning, and configurable Slack and email reminders.",
 			"Built on the same Django/DRF foundation and deployed on Cloudflare.",
 		],
-		stack: ["Django", "DRF", "PostgreSQL", "Redis", "React", "Tailwind CSS", "shadcn/ui", "Docker", "Cloudflare"],
+		stack: ["Django", "Django REST Framework", "PostgreSQL", "Redis", "ReactJS", "Tailwind CSS", "shadcn/ui", "Docker", "Cloudflare"],
 		live: "https://pro-goal.aadarshasubedi20.workers.dev/",
 		source: "https://github.com/Aadarsha-Subedi/Pro-Goal",
 		featured: true,
@@ -119,7 +119,7 @@ export const projects: Project[] = [
 		name: "Finance Tracker",
 		summary: "Track, edit and analyze spending, with monthly and category charts.",
 		details: ["A finance tracker with analytics and customizable options."],
-		stack: ["React", "Chart.js", "Node.js"],
+		stack: ["ReactJS", "Chart.js", "Node.js"],
 		live: "https://finance-tracker-frontend-gules.vercel.app/",
 		image: financeTracker,
 		featured: false,
@@ -129,7 +129,7 @@ export const projects: Project[] = [
 		name: "Type Tester",
 		summary: "A minimal typing test with focus cues for WPM and accuracy.",
 		details: ["A minimalistic type tester with assisted cues for focus, measuring WPM and accuracy."],
-		stack: ["React"],
+		stack: ["ReactJS"],
 		live: "https://type-tester-eight.vercel.app/",
 		image: typeTester,
 		featured: false,
@@ -139,7 +139,7 @@ export const projects: Project[] = [
 		name: "Fresher Resume Builder",
 		summary: "A resume builder for freshers, driven entirely by forms.",
 		details: ["Fill in forms and get a clean resume for a first job."],
-		stack: ["React", "React Hook Form"],
+		stack: ["ReactJS", "React Hook Form"],
 		live: "https://fresher-resume-builder.vercel.app/",
 		source: "https://github.com/Aadarsha-Subedi/fresher-resume-builder",
 		image: resumeBuilder,
@@ -168,7 +168,7 @@ export const education = {
 export const skills: { group: string; items: string[] }[] = [
 	{ group: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "HTML/CSS"] },
 	{ group: "Backend", items: ["Django", "Django REST Framework", "Spring Boot", "Express.js"] },
-	{ group: "Frontend", items: ["React", "Tailwind CSS", "shadcn/ui", "TanStack"] },
+	{ group: "Frontend", items: ["ReactJS", "Tailwind CSS", "shadcn/ui", "TanStack"] },
 	{ group: "Data", items: ["PostgreSQL (pgvector)", "MongoDB", "Redis"] },
 	{ group: "Deploy", items: ["Docker", "GitHub Actions", "AWS EC2, Bedrock", "Cloudflare Workers, R2, Pages, Containers"] },
 	{ group: "Monitoring", items: ["Sentry", "Cloudflare metrics, logs, traces"] },

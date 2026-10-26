@@ -19,14 +19,14 @@ function ageOn(birthDate: string, today = new Date()) {
  * The first screen, split into two halves at the page's fixed width. The left
  * half holds the name and age, the designation (only the discipline rotates
  * and "Engineer" holds still) and a short intro. The right half holds a bento of
- * two projects and two roles in four equal cards, lit in the primary button's
+ * two roles and two projects in four equal cards, each growing to fit its points and stack, lit in the primary button's
  * sky blue.
  */
 export function Hero() {
 	return (
 		<section
 			aria-label="Introduction"
-			className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-[1392px] grid-cols-1 content-center items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]"
+			className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-[1392px] grid-cols-1 content-center items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
 		>
 			<div className="flex flex-col gap-4">
 				<NameLine name={profile.name} age={ageOn(profile.birthDate)} />
@@ -35,7 +35,7 @@ export function Hero() {
 				 * draws them a few percent wider than their layout box. The words are
 				 * left unclipped and the block gets extra side padding to cover it.
 				 */}
-				<p className="font-condensed text-ink flex items-center text-[clamp(2.25rem,1rem+3vw,3.75rem)] leading-none">
+				<p className="font-condensed text-ink flex items-center text-[clamp(2.25rem,1rem+4vw,4.5rem)] leading-none">
 					<RotatingText
 						texts={disciplines}
 						effect="flip"
@@ -58,7 +58,7 @@ export function Hero() {
 			<MagicBento
 				items={bentoItems}
 				columns={4}
-				rowHeight={340}
+				rowHeight={300}
 				gap={12}
 				radius={20}
 				enableBorderGlow
@@ -74,6 +74,7 @@ export function Hero() {
 				theme="light"
 				glowColor="#0084d1"
 				className="hero-bento"
+				style={{ gridAutoRows: "minmax(300px, 1fr)" }}
 			/>
 		</section>
 	);

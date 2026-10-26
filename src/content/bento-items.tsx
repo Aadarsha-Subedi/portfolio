@@ -1,23 +1,14 @@
 import type { MagicBentoItem } from "@/components/react-bits/magic-bento";
+import { TechChips } from "@/components/site/tech-chip";
+import { projects } from "@/content/resume";
 
 const R2 = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev";
 
 /*
- * The hero bento: two roles, then two projects, all the same size. Projects
- * show a framed screenshot above their summary; roles show the company's
- * logo, the role and a few points on the work.
+ * The hero bento: two roles, then two projects. Every card shows a header,
+ * a title, a few points on the work and the stack as chips. Roles carry the
+ * company's logo in the header.
  */
-
-function Screenshot({ src, alt }: { src: string; alt: string }) {
-	return (
-		<img
-			src={src}
-			alt={alt}
-			draggable={false}
-			className="ring-ink/10 mx-auto max-h-full max-w-full rounded-lg object-contain shadow-sm ring-1"
-		/>
-	);
-}
 
 function CompanyLogo({ src, name }: { src?: string; name: string }) {
 	const initials = name
@@ -34,37 +25,74 @@ function CompanyLogo({ src, name }: { src?: string; name: string }) {
 	);
 }
 
-/* A role card replaces the bento's default layout so it can hold a list. */
-function RoleCard({ logo, company, role, points }: { logo?: string; company: string; role: string; points: string[] }) {
+/* A card replaces the bento's default layout so it can hold a list and chips. */
+function WorkCard({
+	logo,
+	label,
+	title,
+	points,
+	stack,
+}: {
+	logo?: { src?: string; name: string };
+	label: string;
+	title: string;
+	points: string[];
+	stack: string[];
+}) {
 	return (
 		<>
 			<div className="magic-bento__header">
-				<CompanyLogo src={logo} name={company} />
-				<span className="magic-bento__label">{role}</span>
+				{logo && <CompanyLogo src={logo.src} name={logo.name} />}
+				<span className="magic-bento__label">{label}</span>
 			</div>
-			<h3 className="magic-bento__title">{company}</h3>
+			<h3 className="magic-bento__title">{title}</h3>
 			<ul className="text-ink-2 -mt-1 flex list-disc flex-col gap-2 pl-4 text-sm leading-snug marker:text-sky-600">
 				{points.map((point) => (
 					<li key={point}>{point}</li>
 				))}
 			</ul>
+			<div className="mt-auto pt-1">
+				<TechChips items={stack} />
+			</div>
 		</>
 	);
 }
+
+function project(id: string) {
+	const found = projects.find((entry) => entry.id === id);
+	if (!found) throw new Error(`No project "${id}" in resume.ts`);
+	return found;
+}
+
+const resolveAi = project("resolve-ai");
+const proGoal = project("pro-goal");
 
 export const bentoItems: MagicBentoItem[] = [
 	{
 		title: "Vanarx Tech",
 		content: (
-			<RoleCard
-				logo={`${R2}/vanarx-logo.svg`}
-				company="Vanarx Tech"
-				role="Full Stack Engineer · 2025–26"
+			<WorkCard
+				logo={{ src: `${R2}/vanarx-logo.svg`, name: "Vanarx Tech" }}
+				label="Full Stack Engineer · 2025–26"
+				title="Vanarx Tech"
 				points={[
 					"Built Socify’s real-time inbox for Instagram, Messenger, WhatsApp and TikTok.",
 					"Let customers bring their own WhatsApp numbers through Evolution API.",
 					"Led usage-based AI billing and ChargeBee subscriptions.",
 					"Cut response times by about 35% with caching and fewer queries.",
+				]}
+				stack={[
+					"Python",
+					"Django",
+					"Django REST Framework",
+					"PostgreSQL",
+					"Redis",
+					"ReactJS",
+					"TypeScript",
+					"Tailwind CSS",
+					"shadcn/ui",
+					"Meta Graph API",
+					"Postman",
 				]}
 			/>
 		),
@@ -73,32 +101,38 @@ export const bentoItems: MagicBentoItem[] = [
 	{
 		title: "Professional Computer Systems",
 		content: (
-			<RoleCard
-				logo={`${R2}/pcs-logo.png`}
-				company="Professional Computer Systems"
-				role="Full Stack Developer Intern · 2023"
+			<WorkCard
+				logo={{ src: `${R2}/pcs-logo.png`, name: "Professional Computer Systems" }}
+				label="Full Stack Developer Intern · 2023"
+				title="Professional Computer Systems"
 				points={[
-					"Built a school management system in React, Tailwind CSS and Spring Boot.",
+					"Built a school management system in ReactJS, Tailwind CSS and Spring Boot.",
 					"Added sign-in and role-based access for admins and students.",
 					"Shipped course, attendance and leave workflows.",
 					"Integrated REST APIs and tested them in Postman across agile sprints.",
 				]}
+				stack={["ReactJS", "Tailwind CSS", "Java", "Spring Boot", "Postman"]}
 			/>
 		),
 		colSpan: 2,
 	},
 	{
-		label: "Project",
-		title: "ResolveAI",
-		description: "A multi-tenant AI support desk with human-reviewed reply drafts.",
-		visual: <Screenshot src={`${R2}/resolve-ai-hero.png`} alt="The ResolveAI dashboard" />,
+		title: resolveAi.name,
+		content: (
+			<WorkCard label="Project" title={resolveAi.name} points={resolveAi.details} stack={resolveAi.stack} />
+		),
 		colSpan: 2,
 	},
 	{
-		label: "Project",
-		title: "Pro-Goal",
-		description: "Project management with tasks, versioned notes and Slack sync.",
-		visual: <Screenshot src={`${R2}/pro-goal-hero.png`} alt="A Pro-Goal task list" />,
+		title: proGoal.name,
+		content: (
+			<WorkCard
+				label="Project"
+				title={proGoal.name}
+				points={proGoal.details}
+				stack={[...proGoal.stack.slice(0, -1), "Slack API", ...proGoal.stack.slice(-1)]}
+			/>
+		),
 		colSpan: 2,
 	},
 ];
