@@ -146,3 +146,12 @@
 	width: auto;
 	height: auto;
 }
+
+/* Hide the page scrollbar; the page still scrolls by wheel, touch and keyboard. */
+html {
+	scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}

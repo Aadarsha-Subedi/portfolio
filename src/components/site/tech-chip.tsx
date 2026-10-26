@@ -10,7 +10,7 @@ const icons: Record<string, string> = {
 	"Meta Graph API": "meta.png",
 	PostgreSQL: "postgreSQL.png",
 	Postman: "postman.png",
-	Python: "python.png",
+	Python: "python.png?v=2",
 	ReactJS: "reactjs.png",
 	Redis: "redis.png",
 	"shadcn/ui": "shadcn.png",
