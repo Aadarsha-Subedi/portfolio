@@ -1,14 +1,14 @@
-import CircularGallery from "@/components/react-bits/circular-gallery";
+import MagicBento from "@/components/react-bits/magic-bento";
 import RotatingText from "@/components/react-bits/rotating-text";
-import { galleryItems } from "@/content/gallery-items";
+import { bentoItems } from "@/content/bento-items";
 
 const disciplines = ["Full Stack", "Frontend", "Backend"];
 
 /*
  * The first screen, split into two halves at the page's fixed width. The left
  * half holds the designation, where only the discipline rotates and
- * "Engineer" holds still. The right half holds a circular gallery of two
- * projects and two roles, narrow enough that one card is in focus at a time.
+ * "Engineer" holds still. The right half holds a bento of two projects and
+ * two roles, lit in the primary button's sky blue.
  */
 export function Hero() {
 	return (
@@ -37,16 +37,25 @@ export function Hero() {
 				/>
 				<span>Engineer</span>
 			</p>
-			<div className="relative h-[clamp(380px,60vh,560px)]">
-				<CircularGallery
-					items={galleryItems}
-					bend={3}
-					textColor="#71717a"
-					borderRadius={0.05}
-					scrollEase={0.05}
-					font="bold 30px Archivo"
-				/>
-			</div>
+			<MagicBento
+				items={bentoItems}
+				columns={4}
+				rowHeight={205}
+				gap={12}
+				radius={20}
+				enableBorderGlow
+				enableSpotlight
+				spotlightRadius={300}
+				clickEffect
+				enableStars
+				particleCount={24}
+				enableTilt
+				enableMagnetism
+				textAutoHide
+				intro
+				theme="light"
+				glowColor="#0084d1"
+			/>
 		</section>
 	);
 }

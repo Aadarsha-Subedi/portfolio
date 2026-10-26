@@ -35,7 +35,7 @@ const items = [
  */
 export function SiteNav() {
 	return (
-		<header className="sticky top-0 z-40 px-4 pt-4 sm:px-6">
+		<header className="sticky top-0 z-40 overflow-x-clip px-4 pt-4 sm:px-6">
 			<div className="mx-auto flex max-w-[1392px] justify-center">
 				<PillNav
 					className="site-nav"
