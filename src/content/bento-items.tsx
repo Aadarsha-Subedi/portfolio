@@ -3,8 +3,7 @@ import type { MagicBentoItem } from "@/components/react-bits/magic-bento";
 /*
  * The hero bento: two projects and two roles, all the same size. Projects
  * fill their card with a screenshot; roles show the company's logo and what
- * the work was. The screenshots and logos are placeholders until the real
- * files are in.
+ * the work was. The screenshots are placeholders until the real ones are in.
  */
 
 function screenshotPlaceholder(tint: string) {
@@ -19,8 +18,14 @@ function CompanyLogo({ src, name }: { src?: string; name: string }) {
 		.join("")
 		.slice(0, 2);
 	return (
-		<span className="grid size-9 place-items-center overflow-hidden rounded-full bg-ink text-[13px] font-semibold text-paper ring-1 ring-ink/10">
-			{src ? <img src={src} alt="" className="size-full object-cover" /> : initials}
+		<span
+			className={`ring-ink/10 grid size-9 place-items-center overflow-hidden rounded-full text-[13px] font-semibold ring-1 ${src ? "bg-white p-1.5" : "bg-ink text-paper"}`}
+		>
+			{src ? (
+				<img src={src} alt="" className="size-full object-contain" />
+			) : (
+				initials
+			)}
 		</span>
 	);
 }
@@ -29,19 +34,26 @@ export const bentoItems: MagicBentoItem[] = [
 	{
 		label: "Project",
 		title: "ResolveAI",
-		description: "A multi-tenant AI support desk with human-reviewed reply drafts.",
+		description:
+			"A multi-tenant AI support desk with human-reviewed reply drafts.",
 		image: screenshotPlaceholder("#11151a"),
 		colSpan: 2,
 	},
 	{
 		label: "Project",
 		title: "Pro-Goal",
-		description: "Project management with tasks, versioned notes and Slack sync.",
+		description:
+			"Project management with tasks, versioned notes and Slack sync.",
 		image: screenshotPlaceholder("#d41a1b"),
 		colSpan: 2,
 	},
 	{
-		icon: <CompanyLogo name="Vanarx Tech" />,
+		icon: (
+			<CompanyLogo
+				name="Vanarx Tech"
+				src="https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/vanarx-logo.svg"
+			/>
+		),
 		label: "Full Stack Engineer · 2025–26",
 		title: "Vanarx Tech",
 		description:
@@ -49,11 +61,15 @@ export const bentoItems: MagicBentoItem[] = [
 		colSpan: 2,
 	},
 	{
-		icon: <CompanyLogo name="Professional Computer Systems" />,
+		icon: (
+			<CompanyLogo
+				name="Professional Computer Systems"
+				src="https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/pcs-logo.png"
+			/>
+		),
 		label: "Full Stack Developer Intern · 2023",
 		title: "Professional Computer Systems",
-		description:
-			"Built a school management system in React and Spring Boot.",
+		description: "Built a school management system in React and Spring Boot.",
 		colSpan: 2,
 	},
 ];
