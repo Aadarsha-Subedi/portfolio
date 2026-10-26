@@ -3,6 +3,7 @@ import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import MagicBento from "@/components/react-bits/magic-bento";
 import RotatingText from "@/components/react-bits/rotating-text";
 import { NameLine } from "@/components/site/name-line";
+import { TextWithTech } from "@/components/site/tech-chip";
 import { bentoItems } from "@/content/bento-items";
 import { profile } from "@/content/resume";
 
@@ -58,7 +59,7 @@ export function Hero() {
 					<span>Engineer</span>
 				</p>
 				<p className="text-ink-2 max-w-[34rem] text-base text-pretty sm:text-lg">
-					{profile.intro}
+					<TextWithTech text={profile.intro} />
 				</p>
 			</div>
 			<MasonryBento />
