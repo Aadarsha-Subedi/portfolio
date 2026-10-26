@@ -11,6 +11,9 @@ export const profile = {
 	location: "Kathmandu, Nepal",
 	summary:
 		"Full-stack engineer (Python/Django, React/TypeScript) with a year of production experience building multi-tenant, AI-powered SaaS. I own features end to end, from architecture to maintainable code.",
+	/* The one or two lines under the hero's designation. */
+	intro:
+		"I build multi-tenant, AI-powered SaaS with Django and React, and own each feature end to end, from architecture to shipped code.",
 	email: "aadarshasubedi406@gmail.com",
 	links: {
 		github: "https://github.com/Aadarsha-Subedi",
