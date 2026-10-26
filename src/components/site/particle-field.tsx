@@ -10,7 +10,7 @@ export function ParticleField() {
 		<div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
 			<Particles
 				particleColors={["#9aa3af", "#eba3a3"]}
-				particleCount={90}
+				particleCount={300}
 				particleSpread={10}
 				speed={0.1}
 				particleBaseSize={80}
