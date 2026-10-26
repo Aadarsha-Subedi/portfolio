@@ -29,4 +29,6 @@ export interface AccordionGalleryProps {
 	className?: string;
 }
 
-export default function AccordionGallery(props: AccordionGalleryProps): JSX.Element;
+export default function AccordionGallery(
+	props: AccordionGalleryProps,
+): JSX.Element;

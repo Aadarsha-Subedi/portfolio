@@ -69,7 +69,9 @@ export function ProjectsSection() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
-	const { ref: galleryRef, height: galleryHeight } = useGalleryHeight(project.gallery?.length ?? 1);
+	const { ref: galleryRef, height: galleryHeight } = useGalleryHeight(
+		project.gallery?.length ?? 1,
+	);
 	return (
 		<article className="border-ink/10 flex flex-col gap-5 rounded-2xl border bg-white/70 p-4">
 			{project.gallery && (
@@ -89,6 +91,7 @@ function ProjectCard({ project }: { project: Project }) {
 						accentColor="#0084d1"
 						overlayColor="#14161c"
 						className="project-gallery"
+						trigger="click"
 					/>
 				</div>
 			)}
