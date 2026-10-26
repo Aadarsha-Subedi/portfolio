@@ -1,9 +1,11 @@
 import financeTracker from "@/assets/projects/finance-tracker.jpg";
+import proGoalHero from "@/assets/projects/pro-goal-hero.webp";
 import proGoalOverview from "@/assets/projects/pro-goal-overview.webp";
 import proGoalSettings from "@/assets/projects/pro-goal-settings.webp";
 import proGoalSlack from "@/assets/projects/pro-goal-slack.webp";
 import proGoalTasks from "@/assets/projects/pro-goal-tasks.webp";
 import resolveAiDashboard from "@/assets/projects/resolve-ai-dashboard.webp";
+import resolveAiHero from "@/assets/projects/resolve-ai-hero.webp";
 import resolveAiTicket from "@/assets/projects/resolve-ai-ticket.webp";
 import resolveAiTickets from "@/assets/projects/resolve-ai-tickets.webp";
 import resumeBuilder from "@/assets/projects/resume-builder.jpg";
@@ -135,7 +137,7 @@ export const projects: Project[] = [
 			"Docker",
 			"Cloudflare",
 		],
-		image: "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/resolve-ai-hero.png",
+		image: resolveAiHero,
 		gallery: [
 			{ image: resolveAiDashboard, label: "Dashboard" },
 			{ image: resolveAiTickets, label: "Tickets" },
@@ -168,7 +170,7 @@ export const projects: Project[] = [
 			"Slack API",
 			"Cloudflare",
 		],
-		image: "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/pro-goal-hero.png",
+		image: proGoalHero,
 		gallery: [
 			{ image: proGoalTasks, label: "Tasks" },
 			{ image: proGoalOverview, label: "Project overview" },
