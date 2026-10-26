@@ -1,4 +1,11 @@
 import financeTracker from "@/assets/projects/finance-tracker.jpg";
+import proGoalOverview from "@/assets/projects/pro-goal-overview.webp";
+import proGoalSettings from "@/assets/projects/pro-goal-settings.webp";
+import proGoalSlack from "@/assets/projects/pro-goal-slack.webp";
+import proGoalTasks from "@/assets/projects/pro-goal-tasks.webp";
+import resolveAiDashboard from "@/assets/projects/resolve-ai-dashboard.webp";
+import resolveAiTicket from "@/assets/projects/resolve-ai-ticket.webp";
+import resolveAiTickets from "@/assets/projects/resolve-ai-tickets.webp";
 import resumeBuilder from "@/assets/projects/resume-builder.jpg";
 import typeTester from "@/assets/projects/type-tester.jpg";
 
@@ -93,11 +100,15 @@ export interface Project {
 	id: string;
 	name: string;
 	summary: string;
+	/* One paragraph on what the project is and why it matters, shown under its title. */
+	about?: string;
 	details: string[];
 	stack: string[];
 	live?: string;
 	source?: string;
 	image?: string;
+	/* Screenshots for the project gallery, each with a short caption. */
+	gallery?: { image: string; label: string }[];
 	featured: boolean;
 }
 
@@ -106,6 +117,8 @@ export const projects: Project[] = [
 		id: "resolve-ai",
 		name: "ResolveAI",
 		summary: "A multi-tenant AI support desk with human-reviewed reply drafts.",
+		about:
+			"ResolveAI is a multi-tenant support desk where AI drafts the replies and people stay in charge. Customers raise tickets from a public workspace portal, agents work them with assignment, a knowledge base and an audit log, and every AI draft, grounded by hybrid RAG over vector and PostgreSQL full-text search, is reviewed by an agent before it goes out through Gmail.",
 		details: [
 			"Customers submit tickets through a public workspace portal; agents reply by Gmail, with ticket assignment, a knowledge base, role-based access, an audit log and a dashboard.",
 			"Hybrid RAG (vector + PostgreSQL full-text search) powers AI reply drafts that an agent reviews before sending.",
@@ -123,6 +136,11 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		image: "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/resolve-ai-hero.png",
+		gallery: [
+			{ image: resolveAiDashboard, label: "Dashboard" },
+			{ image: resolveAiTickets, label: "Tickets" },
+			{ image: resolveAiTicket, label: "Ticket with AI summary" },
+		],
 		live: "https://resolve-ai.aadarshasubedi20.workers.dev/",
 		source: "https://github.com/Aadarsha-Subedi/resolve-ai",
 		featured: true,
@@ -131,6 +149,8 @@ export const projects: Project[] = [
 		id: "pro-goal",
 		name: "Pro-Goal",
 		summary: "Project management with tasks, versioned notes and Slack sync.",
+		about:
+			"Pro-Goal brings a team’s projects, tasks and notes into one place and keeps everyone in step through Slack. Teammates discuss work in comments, notes keep their full version history, and activity tracking with configurable Slack and email reminders makes sure nothing slips.",
 		details: [
 			"Explore projects, manage tasks and notes in one place, discuss through comments, and stay in sync with teammates through Slack.",
 			"Activity tracking, note versioning, and configurable Slack and email reminders.",
@@ -149,6 +169,12 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		image: "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/pro-goal-hero.png",
+		gallery: [
+			{ image: proGoalTasks, label: "Tasks" },
+			{ image: proGoalOverview, label: "Project overview" },
+			{ image: proGoalSlack, label: "Slack integration" },
+			{ image: proGoalSettings, label: "Project settings" },
+		],
 		live: "https://pro-goal.aadarshasubedi20.workers.dev/",
 		source: "https://github.com/Aadarsha-Subedi/Pro-Goal",
 		featured: true,
