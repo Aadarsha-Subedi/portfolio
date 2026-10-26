@@ -16,7 +16,7 @@ export function Hero() {
 	return (
 		<section
 			aria-label="Introduction"
-			className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-[1392px] grid-cols-1 content-center items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-2"
+			className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-[1392px] grid-cols-1 content-center items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
 		>
 			<div className="flex flex-col gap-4">
 				<h1 className="text-ink-2 text-lg font-semibold tracking-tight sm:text-xl">
@@ -50,7 +50,7 @@ export function Hero() {
 			<MagicBento
 				items={bentoItems}
 				columns={4}
-				rowHeight={205}
+				rowHeight={320}
 				gap={12}
 				radius={20}
 				enableBorderGlow
