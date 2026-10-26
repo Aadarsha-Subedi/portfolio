@@ -14,6 +14,7 @@ const icons: Record<string, string> = {
 	ReactJS: "reactjs.png",
 	Redis: "redis.png",
 	"shadcn/ui": "shadcn.png",
+	Slack: "slack.png",
 	"Slack API": "slack.png",
 	"Spring Boot": "spring-boot.png",
 	"Tailwind CSS": "tailwindcss.png",
@@ -21,16 +22,17 @@ const icons: Record<string, string> = {
 };
 
 const sizes = {
-	sm: { chip: "h-6 gap-1.5 px-2 text-xs", icon: "size-3.5" },
-	md: { chip: "h-7 gap-1.5 px-2 text-[0.85em] align-middle", icon: "size-4" },
+	sm: { chip: "h-6 gap-1.5 px-2 text-xs text-ink-2", icon: "size-3.5" },
+	md: { chip: "h-7 gap-1.5 px-2 text-[0.85em] align-middle text-ink-2", icon: "size-4" },
+	lg: { chip: "h-10 gap-2 px-3.5 text-[15px] text-ink", icon: "size-5" },
 };
 
-/* A tech name with its logo. "md" sits inline in running text; "sm" fills the bento's stack lists. */
+/* A tech name with its logo. "md" sits inline in running text, "sm" fills the bento's stack lists and "lg" the Skills section. */
 export function TechChip({ name, size = "sm" }: { name: string; size?: keyof typeof sizes }) {
 	const icon = icons[name];
 	return (
 		<span
-			className={`border-ink/10 text-ink-2 inline-flex items-center rounded-md border bg-white/80 font-medium transition-colors duration-150 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-800 ${sizes[size].chip}`}
+			className={`border-ink/10 inline-flex items-center rounded-md border bg-white/80 font-medium transition-colors duration-150 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-800 ${sizes[size].chip}`}
 		>
 			{icon && <img src={`${ICONS}/${icon}`} alt="" className={`${sizes[size].icon} object-contain`} draggable={false} />}
 			{name}
@@ -38,12 +40,20 @@ export function TechChip({ name, size = "sm" }: { name: string; size?: keyof typ
 	);
 }
 
-export function TechChips({ items }: { items: string[] }) {
+export function TechChips({
+	items,
+	size = "sm",
+	label = "Tech stack",
+}: {
+	items: string[];
+	size?: keyof typeof sizes;
+	label?: string;
+}) {
 	return (
-		<ul aria-label="Tech stack" className="flex flex-wrap gap-1.5">
+		<ul aria-label={label} className={`flex flex-wrap ${size === "lg" ? "gap-2" : "gap-1.5"}`}>
 			{items.map((item) => (
 				<li key={item} className="flex">
-					<TechChip name={item} />
+					<TechChip name={item} size={size} />
 				</li>
 			))}
 		</ul>

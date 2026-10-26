@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { CompanyLogo } from "@/components/site/company-logo";
 import { Emphasis } from "@/components/site/experience-section";
-import { ParticleField } from "@/components/site/particle-field";
 import { SiteNav } from "@/components/site/site-nav";
 import { TechChips } from "@/components/site/tech-chip";
 import { experience, type Role } from "@/content/resume";
@@ -19,7 +18,6 @@ import { experience, type Role } from "@/content/resume";
 export function ExperiencePreview() {
 	return (
 		<>
-			<ParticleField />
 			<SiteNav />
 			<main className="mx-auto max-w-[1392px] px-4 pb-32 sm:px-6">
 				<header className="py-16">

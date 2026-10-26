@@ -204,31 +204,13 @@ export const education = {
 	],
 };
 
+/* Skills by group, each shown as a chip. A name with a logo in tech-chip.tsx gets its icon. */
 export const skills: { group: string; items: string[] }[] = [
-	{
-		group: "Languages",
-		items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "HTML/CSS"],
-	},
-	{
-		group: "Backend",
-		items: ["Django", "Django REST Framework", "Spring Boot", "Express.js"],
-	},
-	{
-		group: "Frontend",
-		items: ["ReactJS", "Tailwind CSS", "shadcn/ui", "TanStack"],
-	},
-	{ group: "Data", items: ["PostgreSQL (pgvector)", "MongoDB", "Redis"] },
-	{
-		group: "Deploy",
-		items: [
-			"Docker",
-			"GitHub Actions",
-			"AWS EC2, Bedrock",
-			"Cloudflare Workers, R2, Pages, Containers",
-		],
-	},
-	{
-		group: "Monitoring",
-		items: ["Sentry", "Cloudflare metrics, logs, traces"],
-	},
+	{ group: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "HTML/CSS"] },
+	{ group: "Backend", items: ["Django", "Django REST Framework", "Spring Boot", "Express.js"] },
+	{ group: "Frontend", items: ["ReactJS", "Tailwind CSS", "shadcn/ui", "TanStack"] },
+	{ group: "Databases", items: ["PostgreSQL", "pgvector", "MongoDB", "Redis"] },
+	{ group: "Deployment", items: ["Docker", "GitHub Actions", "AWS EC2", "AWS Bedrock", "Cloudflare"] },
+	{ group: "Monitoring", items: ["Sentry", "Cloudflare"] },
+	{ group: "Tools", items: ["Git", "GitHub", "Jira", "Slack", "Postman", "Apidog"] },
 ];
