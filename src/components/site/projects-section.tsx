@@ -16,14 +16,14 @@ const featured = projects.filter((project) => project.featured);
 export function ProjectsSection() {
 	return (
 		<section
-			id="work"
-			aria-labelledby="work-title"
+			id="projects"
+			aria-labelledby="projects-title"
 			className="mx-auto max-w-[1392px] scroll-mt-24 px-4 py-16 sm:px-6"
 		>
 			<div className="grid grid-cols-12 gap-x-6 gap-y-6">
 				<div className="col-span-12 md:col-span-3">
 					<h2
-						id="work-title"
+						id="projects-title"
 						className="font-condensed text-ink text-5xl leading-none"
 					>
 						Projects
