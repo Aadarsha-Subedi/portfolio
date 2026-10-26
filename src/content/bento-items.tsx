@@ -20,7 +20,11 @@ function CompanyLogo({ src, name }: { src?: string; name: string }) {
 		<span
 			className={`ring-ink/10 grid size-9 flex-none place-items-center overflow-hidden rounded-full text-[13px] font-semibold ring-1 ${src ? "bg-white p-1.5" : "bg-ink text-paper"}`}
 		>
-			{src ? <img src={src} alt="" className="size-full object-contain" /> : initials}
+			{src ? (
+				<img src={src} alt="" className="size-full object-contain" />
+			) : (
+				initials
+			)}
 		</span>
 	);
 }
@@ -77,9 +81,9 @@ export const bentoItems: MagicBentoItem[] = [
 				title="Vanarx Tech"
 				points={[
 					"Built Socify’s real-time inbox for Instagram, Messenger, WhatsApp and TikTok.",
-					"Let customers bring their own WhatsApp numbers through Evolution API.",
+					"Implemented post management, comment management/moderation and comment automation across Facebook, Instagram and TikTok",
 					"Led usage-based AI billing and ChargeBee subscriptions.",
-					"Cut response times by about 35% with caching and fewer queries.",
+					"Cut response times by about 35% with caching and query optimizations.",
 				]}
 				stack={[
 					"Python",
@@ -102,7 +106,10 @@ export const bentoItems: MagicBentoItem[] = [
 		title: "Professional Computer Systems",
 		content: (
 			<WorkCard
-				logo={{ src: `${R2}/pcs-logo.png`, name: "Professional Computer Systems" }}
+				logo={{
+					src: `${R2}/pcs-logo.png`,
+					name: "Professional Computer Systems",
+				}}
 				label="Full Stack Developer Intern · 2023"
 				title="Professional Computer Systems"
 				points={[
@@ -119,7 +126,12 @@ export const bentoItems: MagicBentoItem[] = [
 	{
 		title: resolveAi.name,
 		content: (
-			<WorkCard label="Project" title={resolveAi.name} points={resolveAi.details} stack={resolveAi.stack} />
+			<WorkCard
+				label="Project"
+				title={resolveAi.name}
+				points={resolveAi.details}
+				stack={resolveAi.stack}
+			/>
 		),
 		colSpan: 2,
 	},
@@ -130,7 +142,11 @@ export const bentoItems: MagicBentoItem[] = [
 				label="Project"
 				title={proGoal.name}
 				points={proGoal.details}
-				stack={[...proGoal.stack.slice(0, -1), "Slack API", ...proGoal.stack.slice(-1)]}
+				stack={[
+					...proGoal.stack.slice(0, -1),
+					"Slack API",
+					...proGoal.stack.slice(-1),
+				]}
 			/>
 		),
 		colSpan: 2,
