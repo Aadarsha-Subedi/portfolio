@@ -8,11 +8,11 @@ import { profile } from "@/content/resume";
 const disciplines = ["Full Stack", "Frontend", "Backend"];
 
 function ageOn(birthDate: string, today = new Date()) {
-	const born = new Date(birthDate);
-	const age = today.getFullYear() - born.getFullYear();
+	/* Split the date by hand: new Date("YYYY-MM-DD") reads it as UTC, which can land on the day before. */
+	const [year, month, day] = birthDate.split("-").map(Number);
+	const age = today.getFullYear() - year;
 	const hadBirthday =
-		today.getMonth() > born.getMonth() ||
-		(today.getMonth() === born.getMonth() && today.getDate() >= born.getDate());
+		today.getMonth() + 1 > month || (today.getMonth() + 1 === month && today.getDate() >= day);
 	return hadBirthday ? age : age - 1;
 }
 

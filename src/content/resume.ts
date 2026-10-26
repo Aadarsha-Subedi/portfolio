@@ -11,8 +11,8 @@ export const profile = {
 	location: "Kathmandu, Nepal",
 	summary:
 		"Full-stack engineer (Python/Django, React/TypeScript) with a year of production experience building multi-tenant, AI-powered SaaS. I own features end to end, from architecture to maintainable code.",
-	/* Drives the age beside the hero name. Placeholder until the real date is in. */
-	birthDate: "2002-01-01",
+	/* Drives the age beside the hero name, as YYYY-MM-DD. */
+	birthDate: "2003-12-10",
 	/* The one or two lines under the hero's designation. */
 	intro:
 		"I build multi-tenant, AI-powered SaaS with Django and React, and own each feature end to end, from architecture to shipped code.",
