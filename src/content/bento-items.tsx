@@ -43,7 +43,7 @@ function RoleCard({ logo, company, role, points }: { logo?: string; company: str
 				<span className="magic-bento__label">{role}</span>
 			</div>
 			<h3 className="magic-bento__title">{company}</h3>
-			<ul className="text-ink-2 -mt-1 flex list-disc flex-col gap-1.5 pl-4 text-[13px] leading-snug marker:text-sky-600">
+			<ul className="text-ink-2 -mt-1 flex list-disc flex-col gap-2 pl-4 text-sm leading-snug marker:text-sky-600">
 				{points.map((point) => (
 					<li key={point}>{point}</li>
 				))}
