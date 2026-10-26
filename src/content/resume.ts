@@ -1,11 +1,6 @@
-import financeTracker from "@/assets/projects/finance-tracker.jpg";
-import proGoalHero from "@/assets/projects/pro-goal-hero.webp";
-import resolveAiHero from "@/assets/projects/resolve-ai-hero.webp";
-import resumeBuilder from "@/assets/projects/resume-builder.jpg";
-import typeTester from "@/assets/projects/type-tester.jpg";
+const R2 = "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev";
 
-export const RESUME_URL =
-	"https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/aadarsha-subedi-resume.pdf";
+export const RESUME_URL = `${R2}/aadarsha-subedi-resume.pdf`;
 
 export const profile = {
 	name: "Aadarsha Subedi",
@@ -129,7 +124,7 @@ export const projects: Project[] = [
 			"Docker",
 			"Cloudflare",
 		],
-		image: resolveAiHero,
+		image: `${R2}/resolve-ai-hero.png`,
 		live: "https://resolve-ai.aadarshasubedi20.workers.dev/",
 		source: "https://github.com/Aadarsha-Subedi/resolve-ai",
 		featured: true,
@@ -156,7 +151,7 @@ export const projects: Project[] = [
 			"Slack API",
 			"Cloudflare",
 		],
-		image: proGoalHero,
+		image: `${R2}/pro-goal-hero.png`,
 		live: "https://pro-goal.aadarshasubedi20.workers.dev/",
 		source: "https://github.com/Aadarsha-Subedi/Pro-Goal",
 		featured: true,
@@ -169,7 +164,6 @@ export const projects: Project[] = [
 		details: ["A finance tracker with analytics and customizable options."],
 		stack: ["ReactJS", "Chart.js", "Node.js"],
 		live: "https://finance-tracker-frontend-gules.vercel.app/",
-		image: financeTracker,
 		featured: false,
 	},
 	{
@@ -181,7 +175,6 @@ export const projects: Project[] = [
 		],
 		stack: ["ReactJS"],
 		live: "https://type-tester-eight.vercel.app/",
-		image: typeTester,
 		featured: false,
 	},
 	{
@@ -192,7 +185,6 @@ export const projects: Project[] = [
 		stack: ["ReactJS", "React Hook Form"],
 		live: "https://fresher-resume-builder.vercel.app/",
 		source: "https://github.com/Aadarsha-Subedi/fresher-resume-builder",
-		image: resumeBuilder,
 		featured: false,
 	},
 ];
