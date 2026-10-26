@@ -92,6 +92,8 @@ const PAD = 17;
 function MasonryBento() {
 	const ref = useRef<HTMLDivElement>(null);
 	const [heights, setHeights] = useState<number[]>([]);
+	// Rows added to the last card of a shorter column so both columns end flush.
+	const [extra, setExtra] = useState<number[]>([]);
 
 	useLayoutEffect(() => {
 		const root = ref.current;
@@ -99,7 +101,11 @@ function MasonryBento() {
 		const bodies = Array.from(root.querySelectorAll<HTMLElement>("[data-bento-body]"));
 		const measure = () => {
 			const next = bodies.map((body) => body.offsetHeight + PAD * 2);
-			setHeights((current) => (current.join() === next.join() ? current : next));
+			setHeights((current) => {
+				if (current.join() === next.join()) return current;
+				setExtra([]);
+				return next;
+			});
 		};
 		const observer = new ResizeObserver(measure);
 		bodies.forEach((body) => observer.observe(body));
@@ -111,10 +117,36 @@ function MasonryBento() {
 	const items = useMemo(
 		() =>
 			bentoItems.map((item, index) =>
-				heights[index] ? { ...item, rowSpan: Math.ceil((heights[index] + GAP) / (ROW + GAP)) } : item,
+				heights[index]
+					? { ...item, rowSpan: Math.ceil((heights[index] + GAP) / (ROW + GAP)) + (extra[index] ?? 0) }
+					: item,
 			),
-		[heights],
+		[heights, extra],
 	);
+
+	/*
+	 * Once the cards are placed, find where each column ends and stretch the
+	 * last card of any shorter column down to the longest one. Offsets are read
+	 * instead of bounding boxes, which the intro's transform would skew.
+	 */
+	useLayoutEffect(() => {
+		const root = ref.current;
+		if (!root || !heights.length) return;
+		const cells = Array.from(root.querySelectorAll<HTMLElement>(".magic-bento__cell"));
+		const columns = new Map<number, { bottom: number; last: number }>();
+		cells.forEach((cell, index) => {
+			const bottom = cell.offsetTop + cell.offsetHeight;
+			const column = columns.get(cell.offsetLeft);
+			if (!column || bottom > column.bottom) columns.set(cell.offsetLeft, { bottom, last: index });
+		});
+		if (columns.size < 2) return;
+		const end = Math.max(...Array.from(columns.values(), (column) => column.bottom));
+		const add: number[] = [];
+		columns.forEach(({ bottom, last }) => {
+			if (end - bottom > 2) add[last] = Math.round((end - bottom) / (ROW + GAP));
+		});
+		if (add.length) setExtra((current) => cells.map((_, index) => (current[index] ?? 0) + (add[index] ?? 0)));
+	}, [items, heights.length]);
 
 	return (
 		<div ref={ref}>
