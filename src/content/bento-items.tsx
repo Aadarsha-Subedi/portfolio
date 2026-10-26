@@ -117,11 +117,7 @@ export const bentoItems: MagicBentoItem[] = [
 				label="Project"
 				title={proGoal.name}
 				points={proGoal.details}
-				stack={[
-					...proGoal.stack.slice(0, -1),
-					"Slack API",
-					...proGoal.stack.slice(-1),
-				]}
+				stack={proGoal.stack}
 			/>
 		),
 		colSpan: 2,

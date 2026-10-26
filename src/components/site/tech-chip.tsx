@@ -11,6 +11,7 @@ const icons: Record<string, string> = {
 	GitHub: "github.png",
 	"HTML/CSS": "html.png",
 	Java: "java.png",
+	JavaScript: "javascript.png",
 	Jira: "jira.png",
 	"Meta Graph API": "meta.png",
 	MongoDB: "mongo-db.png",
@@ -24,7 +25,9 @@ const icons: Record<string, string> = {
 	"Slack API": "slack.png",
 	Slack: "slack.png",
 	"Spring Boot": "spring-boot.png",
+	SQL: "sql.png",
 	"Tailwind CSS": "tailwindcss.png",
+	TanStack: "tanstack.png",
 	TypeScript: "typescript.png",
 };
 
