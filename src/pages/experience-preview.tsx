@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import { CompanyLogo } from "@/components/site/company-logo";
+import { Emphasis } from "@/components/site/experience-section";
 import { ParticleField } from "@/components/site/particle-field";
 import { SiteNav } from "@/components/site/site-nav";
 import { TechChips } from "@/components/site/tech-chip";
@@ -68,7 +69,7 @@ function Option({ letter, name, note, children }: { letter: string; name: string
 	);
 }
 
-/* The parts every option shares: the role line, the points, the figures and the stack. */
+/* The parts every option shares: the role line, the points and the stack. */
 function RoleDetails({ role, showHeading = true }: { role: Role; showHeading?: boolean }) {
 	return (
 		<div className="flex flex-col gap-4">
@@ -82,25 +83,13 @@ function RoleDetails({ role, showHeading = true }: { role: Role; showHeading?: b
 			)}
 			<ul className="text-ink-2 flex list-disc flex-col gap-2 pl-4 text-[15px] leading-relaxed marker:text-sky-600">
 				{role.highlights.map((point) => (
-					<li key={point}>{point}</li>
+					<li key={point}>
+						<Emphasis text={point} />
+					</li>
 				))}
 			</ul>
-			{role.figures && <Figures figures={role.figures} />}
 			<TechChips items={role.stack} />
 		</div>
-	);
-}
-
-function Figures({ figures, compact = false }: { figures: NonNullable<Role["figures"]>; compact?: boolean }) {
-	return (
-		<dl className={`grid grid-cols-2 gap-3 ${compact ? "" : "sm:grid-cols-4"}`}>
-			{figures.map((figure) => (
-				<div key={figure.label} className="border-ink/10 rounded-lg border bg-white/70 px-3 py-2">
-					<dt className="text-ink-2 order-2 text-xs">{figure.label}</dt>
-					<dd className="text-ink text-lg font-semibold">{figure.value}</dd>
-				</div>
-			))}
-		</dl>
 	);
 }
 
@@ -179,7 +168,9 @@ function StickyRevealOption() {
 						<p className="text-ink-2 mt-2">{entry.company}</p>
 						<ul className="text-ink-2 mt-6 flex list-disc flex-col gap-2 pl-4 text-[15px] leading-relaxed marker:text-sky-600">
 							{entry.highlights.map((point) => (
-								<li key={point}>{point}</li>
+								<li key={point}>
+									<Emphasis text={point} />
+								</li>
 							))}
 						</ul>
 					</li>
@@ -203,7 +194,6 @@ function StickyRevealOption() {
 								</p>
 							</div>
 						</div>
-						{role.figures && <Figures figures={role.figures} compact />}
 						<TechChips items={role.stack} />
 					</motion.div>
 				</div>
