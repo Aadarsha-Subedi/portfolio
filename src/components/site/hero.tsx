@@ -1,10 +1,11 @@
 import RotatingText from "@/components/react-bits/rotating-text";
 
-const roles = ["Full Stack Engineer", "Frontend Engineer", "Backend Engineer"];
+const disciplines = ["Full Stack", "Frontend", "Backend"];
 
 /*
  * The first screen, split into two halves at the page's fixed width. The left
- * half holds the rotating designation; the right half is reserved for now.
+ * half holds the designation, where only the discipline rotates and
+ * "Engineer" holds still; the right half is reserved for now.
  */
 export function Hero() {
 	return (
@@ -17,9 +18,9 @@ export function Hero() {
 			 * draws them a few percent wider than their layout box. The words are
 			 * left unclipped and the block gets extra side padding to cover it.
 			 */}
-			<div className="flex items-center">
+			<p className="flex items-center font-condensed text-[clamp(2.25rem,1rem+4vw,4.5rem)] leading-none text-ink">
 				<RotatingText
-					texts={roles}
+					texts={disciplines}
 					effect="flip"
 					direction="up"
 					highlight
@@ -29,9 +30,10 @@ export function Hero() {
 					staggerDuration={0.025}
 					splitLevelClassName="pb-0.5 sm:pb-1 md:pb-1"
 					rotationInterval={2000}
-					mainClassName="-ml-[0.42em] px-[0.42em] font-condensed [&_.text-rotate-space]:pr-[0.22em] text-[clamp(2.25rem,1rem+4vw,4.5rem)] leading-none text-ink"
+					mainClassName="-ml-[0.42em] px-[0.42em] [&_.text-rotate-space]:pr-[0.22em]"
 				/>
-			</div>
+				<span>Engineer</span>
+			</p>
 			<div aria-hidden className="hidden lg:block" />
 		</section>
 	);
