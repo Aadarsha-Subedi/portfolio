@@ -15,6 +15,7 @@ const icons: Record<string, string> = {
 	Jira: "jira.png",
 	"Meta Graph API": "meta.png",
 	MongoDB: "mongo-db.png",
+	NextJS: "nextjs.png",
 	PostgreSQL: "postgreSQL.png",
 	Postman: "postman.png",
 	Python: "python.png?v=2",

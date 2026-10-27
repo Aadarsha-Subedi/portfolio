@@ -65,6 +65,7 @@ export const experience: Role[] = [
 			"PostgreSQL",
 			"Redis",
 			"ReactJS",
+			"NextJS",
 			"TypeScript",
 			"Tailwind CSS",
 			"shadcn/ui",
@@ -211,7 +212,7 @@ export const education = {
 export const skills: { group: string; items: string[] }[] = [
 	{ group: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "HTML/CSS"] },
 	{ group: "Backend", items: ["Django", "Django REST Framework", "Spring Boot", "Express.js"] },
-	{ group: "Frontend", items: ["ReactJS", "Tailwind CSS", "shadcn/ui", "TanStack"] },
+	{ group: "Frontend", items: ["ReactJS", "NextJS", "Tailwind CSS", "shadcn/ui", "TanStack"] },
 	{ group: "Databases", items: ["PostgreSQL", "MongoDB", "Redis"] },
 	{ group: "Deployment & Monitoring", items: ["Docker", "Cloudflare", "Sentry"] },
 	{ group: "Tools", items: ["Git", "GitHub", "Jira", "Slack", "Postman"] },
