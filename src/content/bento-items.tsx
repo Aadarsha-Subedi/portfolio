@@ -112,6 +112,8 @@ export const bentoItems: MagicBentoItem[] = [
 					"LLM query rewriting and provider-agnostic LLMs (Gemini, OpenAI) on per-workspace keys.",
 					"Per-workspace semantic cache, an owner-only AI usage log and injection-safe prompts.",
 					"Audit log and dashboard, covered by unit and API tests in Django.",
+					"Reusable Django/DRF foundation with caching, soft deletes and secrets management.",
+					"Deployed on Cloudflare Workers, Pages and Containers.",
 				]}
 				stack={resolveAi.stack}
 			/>
