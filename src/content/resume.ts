@@ -137,6 +137,8 @@ export const projects: Project[] = [
 			"Explore projects, manage tasks and notes in one place, and discuss findings through comments.",
 			"Sync with teammates through Slack integration, with configurable Slack and email reminders.",
 			"Role-based access control for each user within a project, plus activity tracking and note versioning.",
+			"A reusable Django/DRF foundation: standardized API responses, pagination, filtering, a cache manager, soft deletes and structured request logging.",
+			"Deployed on Cloudflare Workers, Pages and Containers.",
 		],
 		stack: [
 			"Django",

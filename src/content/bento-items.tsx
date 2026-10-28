@@ -108,7 +108,10 @@ export const bentoItems: MagicBentoItem[] = [
 				points={[
 					"Multi-tenant support desk with a ticket portal, Gmail replies and role-based access.",
 					"Hybrid RAG: pgvector + BM25 via ParadeDB, fused with RRF and reranked with Cohere.",
-					"Citation-verified AI drafts with a semantic cache and provider-agnostic LLMs.",
+					"Citation-verified AI drafts that drop any claim not found in the cited passage.",
+					"LLM query rewriting and provider-agnostic LLMs (Gemini, OpenAI) on per-workspace keys.",
+					"Per-workspace semantic cache, an owner-only AI usage log and injection-safe prompts.",
+					"Audit log and dashboard, covered by unit and API tests in Django.",
 				]}
 				stack={resolveAi.stack}
 			/>
@@ -125,6 +128,8 @@ export const bentoItems: MagicBentoItem[] = [
 					"Project management with tasks, notes and comments in one place.",
 					"Slack integration with configurable Slack and email reminders.",
 					"Per-project role-based access, activity tracking and note versioning.",
+					"Reusable Django/DRF foundation with caching, soft deletes and structured logging.",
+					"Deployed on Cloudflare Workers, Pages and Containers.",
 				]}
 				stack={proGoal.stack}
 			/>
