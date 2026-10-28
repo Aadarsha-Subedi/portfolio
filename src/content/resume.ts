@@ -7,7 +7,7 @@ export const profile = {
 	role: "Full Stack Engineer",
 	location: "Kathmandu, Nepal",
 	summary:
-		"Full-stack engineer (Python/Django, ReactJS/TypeScript) with a year of production experience building multi-tenant, AI-powered SaaS. I own features end to end, from architecture to maintainable code.",
+		"Full-stack engineer (Python/Django, ReactJS/TypeScript) with 1+ year of production experience building multi-tenant, AI-powered SaaS. I own features end to end, from high-level architecture to scalable, maintainable code built on design patterns.",
 	/* Drives the age beside the hero name, as YYYY-MM-DD. */
 	birthDate: "2003-12-10",
 	/* The lines under the hero's designation. Tech names with a logo show as chips. */
@@ -56,7 +56,7 @@ export const experience: Role[] = [
 			"Integrated Evolution API so customers can connect existing WhatsApp numbers, reducing onboarding friction from Meta’s pricing and number restrictions.",
 			"Implemented post management, comment management/moderation and comment automation across Facebook, Instagram and TikTok.",
 			"Led usage-based billing for AI replies (about **500,000 credits** purchased and used by clients) and ChargeBee subscriptions.",
-			"Cut response times by about **35%** with caching and query optimizations.",
+			"Cut response times by about **35%** on optimized pages through caching and fewer database queries, working in Scrum sprints tracked in Jira.",
 		],
 		stack: [
 			"Python",
@@ -71,6 +71,7 @@ export const experience: Role[] = [
 			"shadcn/ui",
 			"Meta Graph API",
 			"Postman",
+			"Jira",
 		],
 	},
 	{
@@ -84,8 +85,7 @@ export const experience: Role[] = [
 		website: "https://pcs.com.np/",
 		logo: "https://pub-b2c92cab66f04a2bbb3db9deca643007.r2.dev/pcs-logo.png",
 		highlights: [
-			"Built a School Management System with ReactJS and Tailwind CSS on the frontend and Spring Boot on the backend: authentication, role-based access for admins and students, course management, attendance and leave workflows.",
-			"Integrated the frontend with REST APIs and tested them with Postman in agile sprints.",
+			"Built a School Management System with ReactJS and Tailwind CSS on the frontend and Spring Boot on the backend: authentication, role-based access for admins and students, course management, attendance and leave workflows (students apply; admins approve or reject).",
 		],
 		stack: ["ReactJS", "Tailwind CSS", "Java", "Spring Boot", "Postman"],
 	},
@@ -109,10 +109,9 @@ export const projects: Project[] = [
 		name: "ResolveAI",
 		summary: "A multi-tenant AI support desk with human-reviewed reply drafts.",
 		details: [
-			"Customers submit tickets through a public workspace portal; agents reply by Gmail, with ticket assignment, a knowledge base, role-based access, an audit log and a dashboard.",
-			"Hybrid RAG (vector + PostgreSQL full-text search) powers AI reply drafts that an agent reviews before sending.",
-			"Each workspace runs the default AI agent or plugs in its own OpenAI or Gemini agent through an API key.",
-			"A reusable Django/DRF foundation: standardized responses, pagination, filtering, a cache manager, soft deletes, structured logging and secrets management. Deployed on Cloudflare Workers, Pages and Containers.",
+			"Customers submit tickets through a public workspace portal; agents reply by Gmail, with ticket assignment, a knowledge base, role-based access, an audit log and a dashboard, covered by unit and API tests with the Django test framework.",
+			"Hybrid RAG (pgvector embeddings + BM25 keyword search via ParadeDB, fused with Reciprocal Rank Fusion and reranked with Cohere) powers human-reviewed AI reply drafts, with LLM query rewriting and provider-agnostic LLMs (Gemini, OpenAI) on per-workspace API keys.",
+			"Citation-verified answers drop any claim whose quote is not in the cited passage, alongside a per-workspace semantic cache, an owner-only AI usage log and injection-safe prompts with structured JSON output.",
 		],
 		stack: [
 			"Django",
@@ -137,8 +136,7 @@ export const projects: Project[] = [
 		details: [
 			"Explore projects, manage tasks and notes in one place, and discuss findings through comments.",
 			"Sync with teammates through Slack integration, with configurable Slack and email reminders.",
-			"Activity tracking and note versioning keep the full history of every change.",
-			"A reusable Django/DRF foundation: standardized API responses, pagination, filtering, a cache manager, soft deletes and structured request logging. Deployed on Cloudflare Workers, Pages and Containers.",
+			"Role-based access control for each user within a project, plus activity tracking and note versioning.",
 		],
 		stack: [
 			"Django",
@@ -203,6 +201,9 @@ export const education = {
 		"Operating Systems",
 		"Computer Networks",
 		"Software Engineering",
+		"Java Programming",
+		"Python",
+		"Structured and Object-Oriented Programming (C, C++)",
 		"Machine Learning",
 		"Artificial Intelligence",
 	],
@@ -212,8 +213,25 @@ export const education = {
 export const skills: { group: string; items: string[] }[] = [
 	{ group: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "HTML/CSS"] },
 	{ group: "Backend", items: ["Django", "Django REST Framework", "Spring Boot", "Express.js"] },
+	{ group: "Data & ML", items: ["Pandas", "NumPy", "Scikit-learn"] },
+	{
+		group: "GenAI",
+		items: [
+			"RAG",
+			"Prompt Engineering",
+			"Vector Search",
+			"BM25 (ParadeDB)",
+			"Hybrid Search",
+			"Reciprocal Rank Fusion",
+			"Reranking (Cohere)",
+			"Semantic Caching",
+			"Citation Verification",
+			"Query Rewriting",
+		],
+	},
 	{ group: "Frontend", items: ["ReactJS", "NextJS", "Tailwind CSS", "shadcn/ui", "TanStack"] },
-	{ group: "Databases", items: ["PostgreSQL", "MongoDB", "Redis"] },
-	{ group: "Deployment & Monitoring", items: ["Docker", "Cloudflare", "Sentry"] },
-	{ group: "Tools", items: ["Git", "GitHub", "Jira", "Slack", "Postman"] },
+	{ group: "Databases", items: ["PostgreSQL", "pgvector", "ParadeDB", "MongoDB", "Redis"] },
+	{ group: "Deployment", items: ["Docker", "GitHub Actions", "AWS", "Cloudflare"] },
+	{ group: "Monitoring", items: ["Sentry", "Cloudflare"] },
+	{ group: "Tools", items: ["Git", "GitHub", "Jira", "Slack", "Postman", "Apidog"] },
 ];

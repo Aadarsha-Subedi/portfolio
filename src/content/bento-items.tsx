@@ -93,7 +93,6 @@ export const bentoItems: MagicBentoItem[] = [
 					"Built a school management system in ReactJS, Tailwind CSS and Spring Boot.",
 					"Added sign-in and role-based access for admins and students.",
 					"Shipped course, attendance and leave workflows.",
-					"Integrated REST APIs and tested them in Postman across agile sprints.",
 				]}
 				stack={pcs.stack}
 			/>
@@ -106,7 +105,11 @@ export const bentoItems: MagicBentoItem[] = [
 			<WorkCard
 				label="Project"
 				title={resolveAi.name}
-				points={resolveAi.details}
+				points={[
+					"Multi-tenant support desk with a ticket portal, Gmail replies and role-based access.",
+					"Hybrid RAG: pgvector + BM25 via ParadeDB, fused with RRF and reranked with Cohere.",
+					"Citation-verified AI drafts with a semantic cache and provider-agnostic LLMs.",
+				]}
 				stack={resolveAi.stack}
 			/>
 		),
@@ -118,7 +121,11 @@ export const bentoItems: MagicBentoItem[] = [
 			<WorkCard
 				label="Project"
 				title={proGoal.name}
-				points={proGoal.details}
+				points={[
+					"Project management with tasks, notes and comments in one place.",
+					"Slack integration with configurable Slack and email reminders.",
+					"Per-project role-based access, activity tracking and note versioning.",
+				]}
 				stack={proGoal.stack}
 			/>
 		),
