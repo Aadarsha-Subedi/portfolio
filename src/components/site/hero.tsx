@@ -3,6 +3,7 @@ import { useLayoutEffect, useMemo, useRef, useState } from "react";
 
 import MagicBento from "@/components/react-bits/magic-bento";
 import RotatingText from "@/components/react-bits/rotating-text";
+import { CurrentlyBuilding } from "@/components/site/currently-building";
 import { NameLine } from "@/components/site/name-line";
 import { TextWithTech } from "@/components/site/tech-chip";
 import { ButtonLink } from "@/components/ui/button";
@@ -23,7 +24,7 @@ function ageOn(birthDate: string, today = new Date()) {
 /*
  * The first screen, split into two halves at the page's fixed width. The left
  * half holds the name and age, the designation (only the discipline rotates
- * and "Engineer" holds still), a short intro and the resume and email buttons. The right half holds a bento of
+ * and "Engineer" holds still), a short intro, the resume and email buttons and what is being built now. The right half holds a bento of
  * two roles and two projects, each card as tall as its content, lit in the primary button's
  * sky blue.
  */
@@ -73,6 +74,7 @@ export function Hero() {
 						Email me
 					</ButtonLink>
 				</div>
+				<CurrentlyBuilding />
 			</div>
 			<MasonryBento />
 		</section>
