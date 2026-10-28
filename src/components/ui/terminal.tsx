@@ -230,6 +230,8 @@ interface TerminalProps {
 	className?: string;
 	sequence?: boolean;
 	startOnView?: boolean;
+	/* Called once every sequenced line has finished. */
+	onComplete?: () => void;
 }
 
 export const Terminal = ({
@@ -237,6 +239,7 @@ export const Terminal = ({
 	className,
 	sequence = true,
 	startOnView = true,
+	onComplete,
 }: TerminalProps) => {
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const isInView = useInView(containerRef as React.RefObject<Element>, {
@@ -259,6 +262,16 @@ export const Terminal = ({
 			sequenceStarted: sequenceHasStarted,
 		};
 	}, [sequence, activeIndex, sequenceHasStarted]);
+
+	const itemCount = Children.count(children);
+	const onCompleteRef = useRef(onComplete);
+	useEffect(() => {
+		onCompleteRef.current = onComplete;
+	}, [onComplete]);
+	useEffect(() => {
+		if (sequence && itemCount > 0 && activeIndex >= itemCount)
+			onCompleteRef.current?.();
+	}, [sequence, activeIndex, itemCount]);
 
 	const wrappedChildren = useMemo(() => {
 		if (!sequence) return children;
