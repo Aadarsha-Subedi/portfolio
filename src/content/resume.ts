@@ -13,7 +13,7 @@ export const profile = {
 	/* The lines under the hero's designation. Tech names with a logo show as chips. */
 	intro:
 		"I build AI-powered applications using Django and ReactJS, building features end-to-end and writing maintainable and scalable code through design patterns.",
-	/* The project in progress, shown under the hero buttons with its tagline on hover. */
+	/* The project in progress, typed out in the terminal under the hero buttons. */
 	building: {
 		name: "Querylab",
 		tagline: "Ask your database in plain English, then measure how well the AI answered.",

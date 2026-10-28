@@ -1,34 +1,34 @@
-import { Tooltip } from "@base-ui/react/tooltip";
-
+import {
+	AnimatedSpan,
+	Terminal,
+	TypingAnimation,
+} from "@/components/ui/terminal";
 import { profile } from "@/content/resume";
 
 /*
- * A quiet pill under the hero buttons naming the project in progress. It goes
- * nowhere on click; hovering or focusing it shows the tagline.
+ * A small terminal under the hero buttons that types out a question about the
+ * project in progress and answers it, one line after another.
  */
 export function CurrentlyBuilding() {
 	const { name, tagline } = profile.building;
 	return (
-		<Tooltip.Root>
-			<Tooltip.Trigger
-				delay={150}
-				render={<span tabIndex={0} />}
-				className="border-ink/15 text-ink-2 inline-flex w-fit cursor-default items-center gap-2 rounded-full border bg-white px-3 py-1.5 text-sm outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-			>
-				<span className="relative flex size-2" aria-hidden>
-					<span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-					<span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+		<Terminal className="text-ink mt-2 max-w-[34rem]">
+			<TypingAnimation className="text-ink-2">
+				$ What is Aadarsha currently building?
+			</TypingAnimation>
+			<AnimatedSpan className="text-emerald-600">
+				✔ Found 1 project in progress.
+			</AnimatedSpan>
+			<AnimatedSpan>
+				<span>
+					→ <span className="font-semibold text-sky-700">{name}</span>
 				</span>
-				Currently building
-				<span className="text-ink font-semibold">{name}</span>
-			</Tooltip.Trigger>
-			<Tooltip.Portal>
-				<Tooltip.Positioner side="bottom" align="start" sideOffset={8}>
-					<Tooltip.Popup className="bg-ink max-w-xs origin-[var(--transform-origin)] rounded-lg px-3 py-2 text-sm text-white shadow-lg transition-[transform,opacity] duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0">
-						{tagline}
-					</Tooltip.Popup>
-				</Tooltip.Positioner>
-			</Tooltip.Portal>
-		</Tooltip.Root>
+			</AnimatedSpan>
+			<TypingAnimation className="text-ink-2">$ What is it?</TypingAnimation>
+			<AnimatedSpan className="whitespace-pre-wrap">{`→ ${tagline}`}</AnimatedSpan>
+			<AnimatedSpan className="text-emerald-600">
+				✔ Status: actively building.
+			</AnimatedSpan>
+		</Terminal>
 	);
 }
